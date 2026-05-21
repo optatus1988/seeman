@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Макроэкономический Анализ Роста KOSPI и ETF KORU</title>
+  <title>Научные механизмы хронического стресса по Роберту Сапольски</title>
 
   <!-- Essential CDN Libraries -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -14,28 +14,28 @@
         extend: {
           colors: {
             primary: {
-              50: 'hsl(30, 90%, 95%)',
-              100: 'hsl(30, 90%, 85%)',
-              200: 'hsl(30, 90%, 75%)',
-              300: 'hsl(30, 90%, 65%)',
-              400: 'hsl(30, 90%, 55%)',
-              500: 'hsl(30, 90%, 45%)',
-              600: 'hsl(30, 90%, 35%)',
-              700: 'hsl(30, 90%, 25%)',
-              800: 'hsl(30, 90%, 15%)',
-              900: 'hsl(30, 90%, 10%)'
+              50: 'hsl(170, 70%, 95%)',
+              100: 'hsl(170, 70%, 85%)',
+              200: 'hsl(170, 70%, 75%)',
+              300: 'hsl(170, 70%, 65%)',
+              400: 'hsl(170, 70%, 55%)',
+              500: 'hsl(170, 70%, 40%)',
+              600: 'hsl(170, 70%, 35%)',
+              700: 'hsl(170, 70%, 25%)',
+              800: 'hsl(170, 70%, 15%)',
+              900: 'hsl(170, 70%, 10%)'
             },
             accent: {
-              50: 'hsl(60, 85%, 95%)',
-              100: 'hsl(60, 85%, 85%)',
-              200: 'hsl(60, 85%, 75%)',
-              300: 'hsl(60, 85%, 65%)',
-              400: 'hsl(60, 85%, 60%)',
-              500: 'hsl(60, 85%, 55%)',
-              600: 'hsl(60, 85%, 50%)',
-              700: 'hsl(60, 85%, 40%)',
-              800: 'hsl(60, 85%, 30%)',
-              900: 'hsl(60, 85%, 20%)'
+              50: 'hsl(200, 65%, 95%)',
+              100: 'hsl(200, 65%, 85%)',
+              200: 'hsl(200, 65%, 75%)',
+              300: 'hsl(200, 65%, 65%)',
+              400: 'hsl(200, 65%, 60%)',
+              500: 'hsl(200, 65%, 55%)',
+              600: 'hsl(200, 65%, 50%)',
+              700: 'hsl(200, 65%, 40%)',
+              800: 'hsl(200, 65%, 30%)',
+              900: 'hsl(200, 65%, 20%)'
             }
           }
         }
@@ -46,7 +46,7 @@
   <script src="https://unpkg.com/lucide@latest"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0"></script>
 
   <!-- Preline UI Components -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/preline@2.0.3/dist/preline.min.css">
@@ -97,15 +97,20 @@
     .card-interactive[class*="primary"]:hover,
     .card-interactive[class*="white"]:hover,
     .card-interactive[class*="gray-"]:hover {
-      border-color: hsl(30, 90%, var(--border-lightness));
+      border-color: hsl(170, 70%, var(--border-lightness));
     }
     
     /* Accent colored cards */
     .card-interactive[class*="accent"]:hover {
-      border-color: hsl(60, 85%, var(--border-lightness));
+      border-color: hsl(200, 65%, var(--border-lightness));
+    }
+
+    .dark .card-interactive:hover {
+      filter: brightness(1.05);
     }
   </style>
 
+  <!-- Dark Mode Toggle Script -->
   <script>
     function toggleDarkMode() {
       document.body.classList.toggle('dark');
@@ -116,7 +121,7 @@
   </script>
 </head>
 
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+<body class="transition-colors duration-300 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
   <!-- Citation System Script -->
   <script>
     function initCitationSystem() {
@@ -133,9 +138,9 @@
         if (!el.textContent || !el.textContent.trim()) { el.dataset.citationProcessed = 'true'; return; }
 
         const btn = document.createElement('sup'); btn.textContent = String(idx);
-        Object.assign(btn.style, { fontSize:'8px', color:'#fff', cursor:'pointer', top: '1px', fontWeight:'bold', backgroundColor:'#ea580c', borderRadius:'50%', transition:'all .15s', userSelect:'none', minWidth:'19px', height:'19px', marginLeft:'6px', display:'inline-flex', alignItems:'center', justifyContent:'center', boxShadow:'0 1px 3px rgba(0,0,0,.2)', lineHeight:'1'});
-        btn.addEventListener('mouseenter', ()=> Object.assign(btn.style, { backgroundColor:'#c2410c', transform:'scale(1.12)' }));
-        btn.addEventListener('mouseleave', ()=> Object.assign(btn.style, { backgroundColor:'#ea580c', transform:'scale(1)' }));
+        Object.assign(btn.style, { fontSize:'8px', color:'#fff', cursor:'pointer', top: '1px', fontWeight:'bold', backgroundColor:'#0d9488', borderRadius:'50%', transition:'all .15s', userSelect:'none', minWidth:'19px', height:'19px', marginLeft:'6px', display:'inline-flex', alignItems:'center', justifyContent:'center', boxShadow:'0 1px 3px rgba(0,0,0,.2)', lineHeight:'1'});
+        btn.addEventListener('mouseenter', ()=> Object.assign(btn.style, { backgroundColor:'#0f766e', transform:'scale(1.12)' }));
+        btn.addEventListener('mouseleave', ()=> Object.assign(btn.style, { backgroundColor:'#0d9488', transform:'scale(1)' }));
         btn.addEventListener('click', e=>{ e.preventDefault(); e.stopPropagation(); window.open(url, '_blank'); });
 
         el.appendChild(btn); el.dataset.citationProcessed = 'true';
@@ -144,27 +149,28 @@
   </script>
 
   <!-- Progress bar -->
-  <div class="fixed top-0 left-0 h-1 bg-primary-500 dark:bg-primary-400 z-[60] transition-all duration-300 ease-out" id="progressBar" style="width: 0%;"></div>
+  <div id="progressBar" class="fixed top-0 left-0 h-1 bg-primary-500 dark:bg-primary-400 z-[60] transition-all duration-300"></div>
 
   <!-- Floating Header -->
-  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur bg-gray-50/90 dark:bg-gray-900/90 border-b border-primary-500/20 dark:border-primary-600/20">
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-gray-50/90 dark:bg-gray-900/90 border-b border-primary-500/20 dark:border-primary-600/20">
     <div class="max-w-7xl mx-auto px-6 py-4">
       <div class="flex items-center justify-between">
-        <h1 class="text-xl font-bold text-primary-700 dark:text-primary-300">Анализ KOSPI и KORU</h1>
+        <h1 class="text-xl font-bold text-primary-700 dark:text-primary-300">Хронический стресс</h1>
         
         <nav class="hidden md:flex items-center space-x-6">
-          <a href="#home" class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Главная</a>
-          <a href="#kospi" class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">KOSPI</a>
-          <a href="#export" class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Экспорт</a>
-          <a href="#semiconductor" class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Полупроводники</a>
-          <a href="#policy" class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Политика</a>
-          <a href="#macro" class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Макро</a>
-          <a href="#conclusion" class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Заключение</a>
+          <a href="#home" class="text-sm text-primary-600 dark:text-primary-300 hover:text-primary-800 dark:hover:text-primary-200 transition-colors">Главная</a>
+          <a href="#mechanisms" class="text-sm text-primary-600 dark:text-primary-300 hover:text-primary-800 dark:hover:text-primary-200 transition-colors">Механизмы</a>
+          <a href="#hippocampus" class="text-sm text-primary-600 dark:text-primary-300 hover:text-primary-800 dark:hover:text-primary-200 transition-colors">Гиппокамп</a>
+          <a href="#prefrontal" class="text-sm text-primary-600 dark:text-primary-300 hover:text-primary-800 dark:hover:text-primary-200 transition-colors">ПФК</a>
+          <a href="#neuroinflammation" class="text-sm text-primary-600 dark:text-primary-300 hover:text-primary-800 dark:hover:text-primary-200 transition-colors">Нейровоспаление</a>
+          <a href="#criticism" class="text-sm text-primary-600 dark:text-primary-300 hover:text-primary-800 dark:hover:text-primary-200 transition-colors">Критика</a>
+          <a href="#recommendations" class="text-sm text-primary-600 dark:text-primary-300 hover:text-primary-800 dark:hover:text-primary-200 transition-colors">Рекомендации</a>
+          <a href="#conclusion" class="text-sm text-primary-600 dark:text-primary-300 hover:text-primary-800 dark:hover:text-primary-200 transition-colors">Заключение</a>
         </nav>
 
         <button onclick="toggleDarkMode()" class="btn-interactive p-2 rounded-lg bg-primary-100 dark:bg-primary-800 text-primary-600 dark:text-primary-300 hover:bg-primary-200 dark:hover:bg-primary-700 transition-all">
-          <i data-lucide="sun" id="sunIcon" class="w-5 h-5" style="display: none;"></i>
-          <i data-lucide="moon" id="moonIcon" class="w-5 h-5" style="display: block;"></i>
+          <i data-lucide="sun" id="sunIcon" class="w-5 h-5"></i>
+          <i data-lucide="moon" id="moonIcon" class="w-5 h-5" style="display:none;"></i>
         </button>
       </div>
     </div>
@@ -175,442 +181,571 @@
     <!-- Hero Section -->
     <section id="home" class="py-40 bg-primary-50/50 dark:bg-gray-900" data-aos="fade-up">
       <div class="max-w-5xl mx-auto px-6">
-        <div class="text-center space-y-6">
-          <h1 class="text-5xl font-bold text-primary-700 dark:text-primary-300" data-ref="https://www.investing.com/news/stock-market-news/south-koreas-kospi-market-outlook-for-2026-as-per-macquarie-4386420|1">
-            Макроэкономические Факторы Роста KOSPI и ETF KORU
-          </h1>
-          <p class="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
-            Комплексный анализ макроэкономических драйверов, обусловивших впечатляющий рост южнокорейского фондового рынка и связанного с ним американского ETF KORU в течение прошедшего года
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl font-bold mb-6 text-primary-700 dark:text-primary-300">
+            Научные механизмы хронического стресса
+          </h2>
+          <p class="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Исследование нейробиологических последствий длительного стресса по работам Роберта Сапольски и современным научным данным
           </p>
-          <div class="flex justify-center gap-4 pt-6">
-            <div class="card-interactive px-6 py-3 bg-white/90 backdrop-blur-sm dark:bg-gray-800 rounded-lg shadow-md">
-              <div class="text-2xl font-bold text-primary-600 dark:text-primary-400">70%</div>
-              <div class="text-xs text-gray-600 dark:text-gray-400">рост KOSPI за год</div>
-            </div>
-            <div class="card-interactive px-6 py-3 bg-white/90 backdrop-blur-sm dark:bg-gray-800 rounded-lg shadow-md">
-              <div class="text-2xl font-bold text-accent-600 dark:text-accent-400">$30B+</div>
-              <div class="text-xs text-gray-600 dark:text-gray-400">экспорт полупроводников</div>
-            </div>
-            <div class="card-interactive px-6 py-3 bg-white/90 backdrop-blur-sm dark:bg-gray-800 rounded-lg shadow-md">
-              <div class="text-2xl font-bold text-primary-600 dark:text-primary-400">64%</div>
-              <div class="text-xs text-gray-600 dark:text-gray-400">ожидаемый рост памяти</div>
-            </div>
-          </div>
         </div>
-      </div>
-    </section>
 
-    <!-- KOSPI Performance Section -->
-    <section id="kospi" class="py-20 bg-white/80 dark:bg-gray-900" data-aos="fade-up">
-      <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-8 text-primary-700 dark:text-primary-300 text-center">
-          Динамика Индекса KOSPI
-        </h2>
-        
-        <div class="grid md:grid-cols-2 gap-8 items-start mb-12">
+        <div class="grid md:grid-cols-2 gap-8 items-center mt-16">
           <div class="space-y-6">
-            <p class="text-gray-700 dark:text-gray-300" data-ref="https://www.investing.com/news/stock-market-news/south-koreas-kospi-market-outlook-for-2026-as-per-macquarie-4386420|1">
-              Южнокорейский фондовый индекс KOSPI продемонстрировал впечатляющий рост, увеличившись на
-              <span class="mx-1 px-1.5 py-0.5 rounded-md bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 font-semibold text-sm">70%</span>
-              с начала 2025 года. Этот рост значительно превзошел результаты других развивающихся рынков, подтверждая его лидерскую позицию среди аналогичных индикаторов.
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://www.amazon.com/Why-Zebras-Dont-Ulcers-Third/dp/0805073698|31">
+              Хронический стресс вызывает глубокие изменения в организме, превышающие естественные адаптационные возможности. В отличие от животных, которые испытывают острую реакцию на угрозу и затем быстро восстанавливаются, люди подвергаются постоянному психологическому стрессу, который может сохраняться месяцами и годами.
             </p>
-            
-            <p class="text-gray-700 dark:text-gray-300" data-ref="https://www.investing.com/news/stock-market-news/south-koreas-kospi-market-outlook-for-2026-as-per-macquarie-4386420|1">
-              Аналитики Macquarie прогнозируют, что к 2026 году индекс может достичь уровня
-              <span class="mx-1 px-1.5 py-0.5 rounded-md bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 font-semibold text-sm">6,000 пунктов</span>,
-              при этом коэффициент цена/прибыль составит 14, что соответствует росту прибыли на акцию на 48% в 2026 году.
+
+            <div class="pl-4 pr-3 py-3 border-l-4 border-primary-500 bg-primary-50/40 dark:bg-primary-900/30 rounded-r-lg">
+              <p class="text-sm font-medium text-primary-900 dark:text-primary-100 leading-relaxed" data-ref="https://www.amazon.com/Why-Zebras-Dont-Ulcers-Third/dp/0805073698|31">
+                <i data-lucide="info" class="inline-block w-4 h-4 mr-1.5 -mt-0.5"></i>
+                Ключевое открытие: Почему зебры не получают язвы — потому что они испытывают острую, кратковременную реакцию на стресс, после чего уровень кортизола быстро возвращается к норме.
+              </p>
+            </div>
+
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://www.linkedin.com/pulse/book-summary-why-zebras-dont-get-ulcers-robert-sapolsky-dheeraj-garg-hoybc|56">
+              Стресс, длящийся недели или месяцы, указывает на хронический стресс. Он может оказывать влияние на общее состояние здоровья, включая риск высокого кровяного давления, также известного как гипертония.
             </p>
           </div>
           
           <img
-            src="https://cdn.qwenlm.ai/b9dae233-8018-4115-a4c1-2a7ed18649fc/2e11d81d-0c81-473a-b74a-d0423bc3b271/466c34b7-2283-4926-a2cf-368591a16577.png?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNvdXJjZV91c2VyX2lkIjoiYjlkYWUyMzMtODAxOC00MTE1LWE0YzEtMmE3ZWQxODY0OWZjIiwicmVzb3VyY2VfaWQiOiIyZTExZDgxZC0wYzgxLTQ3M2EtYjc0YS1kMDQyM2JjM2IyNzEiLCJyZXNvdXJjZV9jaGF0X2lkIjpudWxsfQ.qRHzin-QcQlJe_CFPaybQupnO8F8uU6KFWasZlEdm9E"
-            alt="Концептуальная иллюстрация южнокорейского фондового рынка: на переднем плане крупный цифровой дисплей с зелеными графиками роста, отображающими индекс KOSPI, расположенный на высоте 6,000 пунктов с подписью 70% роста за год. На заднем плане силуэт современного делового центра Сеула с яркими окнами небоскребов. Цветовая гамма включает насыщенные оранжевые и желтые тона (цвета основной и дополнительной палитры), символизирующие рост и оптимизм. Общий фон представляет собой смесь светло-серого и белого, создающий контраст с яркими элементами графиков. Композиция подчеркивает динамику и успех южнокорейской экономики через визуальное представление финансовых достижений."
+            src="https://cdn.qwenlm.ai/b9dae233-8018-4115-a4c1-2a7ed18649fc/65c90471-eeb4-4cab-a8bd-b7c43d0ded75/2e054a6e-db50-4eb9-9a64-e1e7ebc950e7.png?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNvdXJjZV91c2VyX2lkIjoiYjlkYWUyMzMtODAxOC00MTE1LWE0YzEtMmE3ZWQxODY0OWZjIiwicmVzb3VyY2VfaWQiOiI2NWM5MDQ3MS1lZWI0LTRjYWItYThiZC1iN2M0M2QwZGVkNzUiLCJyZXNvdXJjZV9jaGF0X2lkIjpudWxsfQ.7suBjD26EpVIK7U20w_xVo5LwDzKQ9ifBl3ro-BDVN0"
+            alt="Схематичная иллюстрация человеческого мозга на светло-сером фоне (#E5E5E5). На переднем плане показана гиппокампальная область с изогнутой структурой, окрашенной в темно-зеленый цвет (#14532D), и тонкими отростками нейронов. В центре композиции расположен префронтальный кора (ПФК) с прямоугольной формой, окрашенной в сине-зеленый оттенок (#0D9488). Вокруг этих областей расположены красные точки (#DC2626), символизирующие микроглию и воспалительные маркеры. В верхней части изображения показаны три вертикальные стрелки: первая (красная) направлена вверх с надписью 'Кортизол ↑', вторая (желтая) направлена вниз с надписью 'Нейрогенез ↓', третья (синяя) направлена вправо с надписью 'Синапсы'. Все текстовые элементы выполнены черным шрифтом с четкой читаемостью. Композиция представляет собой научную иллюстрацию нейробиологических изменений при хроническом стрессе."
             class="w-full rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300"
           />
         </div>
+      </div>
+    </section>
 
-        <div class="pl-4 pr-3 py-3 border-l-4 border-primary-500 bg-primary-50/40 dark:bg-primary-900/30 rounded-r-lg mb-8">
-          <p class="text-sm font-medium text-primary-900 dark:text-primary-100 leading-relaxed" data-ref="https://www.investing.com/news/stock-market-news/south-koreas-kospi-market-outlook-for-2026-as-per-macquarie-4386420|1">
-            <i data-lucide="trending-up" class="inline-block w-4 h-4 mr-1.5 -mt-0.5"></i>
-            Ключевой вывод: Рост KOSPI на 70% в 2025 году стал одним из самых впечатляющих среди развивающихся рынков, поддерживаемый сильными фундаментальными показателями компаний и благоприятной макроэкономической средой.
+    <!-- Stress Mechanisms Section -->
+    <section id="mechanisms" class="py-20 bg-white/80 dark:bg-gray-900" data-aos="fade-up">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-8 text-primary-700 dark:text-primary-300">
+          Нейроэндокринные механизмы хронического стресса
+        </h2>
+
+        <div class="space-y-6 mb-10">
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC2808193/|24">
+            Теория аллостаза описывает активный процесс адаптации организма к стрессорам через перестройку гомеостатических настроек. Аллостаз включает в себя молекулы-медиаторы, такие как катехоламины, гормоны стресса, цитокины и другие сигнальные молекулы, которые обеспечивают адаптацию к меняющимся условиям.
+          </p>
+
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://www.nature.com/articles/1395453|25">
+            Аллостатическая нагрузка — это совокупная нагрузка на организм, вызванная повторными эпизодами аллостаза, которая может привести к дисрегуляции и патологии. Повторные или хронические воздействия стрессоров могут привести к «аллостатической перегрузке», когда системы организма становятся истощенными и теряют способность эффективно реагировать на будущие стрессоры.
+          </p>
+
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://onlinelibrary.wiley.com/doi/10.1002/dev.22107|27">
+            Теория аллостатической нагрузки подчеркивает хроническое воздействие стресса как угрозу для системы, а не одиночные случаи острого стресса. Эта модель акцентирует внимание на долгосрочных последствиях повторного воздействия стрессоров на организм.
           </p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
-          <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-800 rounded-xl shadow-md">
+          <div class="card-interactive p-6 bg-primary-50/50 dark:bg-primary-900/20 rounded-xl shadow-md">
             <div class="flex items-center space-x-4 mb-4">
               <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
-                <i data-lucide="chart-line" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
+                <i data-lucide="activity" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
               </div>
-              <h3 class="font-semibold text-lg text-primary-700 dark:text-primary-300">Прогнозируемый рост</h3>
+              <h3 class="text-lg font-semibold text-primary-700 dark:text-primary-300" data-ref="https://www.nature.com/articles/1395453|25">Аллостаз</h3>
             </div>
-            <p class="text-gray-700 dark:text-gray-300 text-sm" data-ref="https://www.investing.com/news/stock-market-news/south-koreas-kospi-market-outlook-for-2026-as-per-macquarie-4386420|1">
-              Ожидается рост прибыли на акцию на 48% в 2026 году при коэффициенте цена/прибыль 14
+            <p class="text-sm text-gray-700 dark:text-gray-300">
+              Активный процесс адаптации к стрессорам через перестройку гомеостатических настроек
             </p>
           </div>
 
-          <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-800 rounded-xl shadow-md">
+          <div class="card-interactive p-6 bg-accent-50/50 dark:bg-accent-900/20 rounded-xl shadow-md">
             <div class="flex items-center space-x-4 mb-4">
               <div class="flex-shrink-0 w-12 h-12 bg-accent-100 dark:bg-accent-900/30 rounded-lg flex items-center justify-center">
-                <i data-lucide="dollar-sign" class="w-6 h-6 text-accent-600 dark:text-accent-400"></i>
+                <i data-lucide="circle-alert" class="w-6 h-6 text-accent-600 dark:text-accent-400"></i>
               </div>
-              <h3 class="font-semibold text-lg text-accent-700 dark:text-accent-300">Целевой уровень</h3>
+              <h3 class="text-lg font-semibold text-accent-700 dark:text-accent-300" data-ref="https://www.nature.com/articles/1395453|25">Перегрузка</h3>
             </div>
-            <p class="text-gray-700 dark:text-gray-300 text-sm" data-ref="https://www.investing.com/news/stock-market-news/south-koreas-kospi-market-outlook-for-2026-as-per-macquarie-4386420|1">
-              Целевой уровень индекса KOSPI: 6,000 пунктов к концу 2026 года
+            <p class="text-sm text-gray-700 dark:text-gray-300">
+              Истощение систем организма, приводящее к потере способности эффективно реагировать
             </p>
           </div>
 
-          <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-800 rounded-xl shadow-md">
+          <div class="card-interactive p-6 bg-primary-50/50 dark:bg-primary-900/20 rounded-xl shadow-md">
             <div class="flex items-center space-x-4 mb-4">
               <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
-                <i data-lucide="trending-up" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
+                <i data-lucide="shield-off" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
               </div>
-              <h3 class="font-semibold text-lg text-primary-700 dark:text-primary-300">Текущий рост</h3>
+              <h3 class="text-lg font-semibold text-primary-700 dark:text-primary-300" data-ref="https://onlinelibrary.wiley.com/doi/10.1002/dev.22107|27">Дисрегуляция</h3>
             </div>
-            <p class="text-gray-700 dark:text-gray-300 text-sm" data-ref="https://www.investing.com/news/stock-market-news/south-koreas-kospi-market-outlook-for-2026-as-per-macquarie-4386420|1">
-              Реализованный рост индекса за год: 70% с начала 2025 года
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Export Performance Section -->
-    <section id="export" class="py-20 bg-accent-50/50 dark:bg-gray-800" data-aos="fade-up">
-      <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-8 text-accent-700 dark:text-accent-300 text-center">
-          Экспортные Достижения Южной Кореи
-        </h2>
-
-        <div class="grid md:grid-cols-2 gap-8 items-start mb-12">
-          <img
-            src="https://cdn.qwenlm.ai/b9dae233-8018-4115-a4c1-2a7ed18649fc/2e11d81d-0c81-473a-b74a-d0423bc3b271/ac1bb374-0f7c-443a-827b-85c8a5ab63fd.png?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNvdXJjZV91c2VyX2lkIjoiYjlkYWUyMzMtODAxOC00MTE1LWE0YzEtMmE3ZWQxODY0OWZjIiwicmVzb3VyY2VfaWQiOiIyZTExZDgxZC0wYzgxLTQ3M2EtYjc0YS1kMDQyM2JjM2IyNzEiLCJyZXNvdXJjZV9jaGF0X2lkIjpudWxsfQ.qRHzin-QcQlJe_CFPaybQupnO8F8uU6KFWasZlEdm9E"
-            alt="Концептуальная иллюстрация южнокорейских экспортных достижений: на переднем плане три крупных контейнера с надписями на корейском и английском языках, символизирующие экспортные товары, включая полупроводники, автомобили и судостроение. На заднем плане современный порт Бусана с грузовыми судами, разгружающими контейнеры под ярким солнечным небом. В правом верхнем углу размещена круговая диаграмма с тремя сегментами: синий сегмент 22.2% для полупроводников, зеленый сегмент 24.9% для судостроения и красный сегмент 1.7% для автомобилей. В левом нижнем углу крупные цифры $709.69 млрд с подписью 'Общий объем экспорта 2025'. Цветовая палитра использует насыщенные оранжевые и желтые тона для фона и акцентов, с добавлением синих и зеленых элементов для выделения ключевых категорий. Композиция подчеркивает масштаб и разнообразие южнокорейского экспорта."
-            class="w-full rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300"
-          />
-
-          <div class="space-y-6">
-            <p class="text-gray-700 dark:text-gray-300" data-ref="https://english.news.cn/20260102/b8b61a2d99284df996cae87aee15356e/c.html|3">
-              Южная Корея установила рекорд по объему экспорта в
-              <span class="mx-1 px-1.5 py-0.5 rounded-md bg-accent-100 dark:bg-accent-900/30 text-accent-800 dark:text-accent-300 font-semibold text-sm">$709.69 млрд</span>
-              в 2025 году, что на 3.8% превышает предыдущий годовой показатель. Ежедневный средний объем экспорта составил $2.64 млрд, демонстрируя устойчивую динамику роста.
-            </p>
-
-            <p class="text-gray-700 dark:text-gray-300" data-ref="https://english.news.cn/20260102/b8b61a2d99284df996cae87aee15356e/c.html|3">
-              Торговый профицит страны достиг
-              <span class="mx-1 px-1.5 py-0.5 rounded-md bg-accent-100 dark:bg-accent-900/30 text-accent-800 dark:text-accent-300 font-semibold text-sm">$78.02 млрд</span>
-              в 2025 году, рассчитанный из импорта в размере $631.67 млрд и экспорта $709.69 млрд, что указывает на здоровый торговый баланс и конкурентоспособность экономики.
+            <p class="text-sm text-gray-700 dark:text-gray-300">
+              Потеря контроля над физиологическими системами при хроническом стрессе
             </p>
           </div>
         </div>
 
-        <div class="pl-4 pr-3 py-3 border-l-4 border-accent-500 bg-accent-50/40 dark:bg-accent-900/30 rounded-r-lg mb-8">
-          <p class="text-sm font-medium text-accent-900 dark:text-accent-100 leading-relaxed" data-ref="https://english.news.cn/20260102/b8b61a2d99284df996cae87aee15356e/c.html|3">
-            <i data-lucide="circle-check" class="inline-block w-4 h-4 mr-1.5 -mt-0.5"></i>
-            Полупроводниковый сектор: Экспорт полупроводников вырос на 22.2% до рекордных $173.39 млрд, что стало основным драйвером общего роста экспорта благодаря высокому спросу на чипы памяти для центров обработки данных.
-          </p>
-        </div>
-
-        <div class="hs-accordion-group space-y-4">
-          <div class="hs-accordion card-interactive bg-white/80 backdrop-blur-sm dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
-            <button class="hs-accordion-toggle w-full flex justify-between items-center p-4 text-left hover:bg-accent-50 dark:hover:bg-gray-700/50 transition-colors rounded-xl" id="hs-export-1">
-              <div class="flex items-center space-x-4">
-                <div class="flex-shrink-0 w-12 h-12 bg-accent-100 dark:bg-accent-900/30 rounded-lg flex items-center justify-center">
-                  <i data-lucide="cpu" class="w-6 h-6 text-accent-600 dark:text-accent-400"></i>
-                </div>
-                <span class="font-semibold text-lg text-accent-700 dark:text-accent-300">Полупроводники</span>
-              </div>
-              <i data-lucide="chevron-down" class="hs-accordion-active:rotate-180 transition-transform duration-300 w-5 h-5 text-accent-600 dark:text-accent-400"></i>
-            </button>
-            <div id="hs-collapse-export-1" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-export-1">
-              <div class="p-6 pt-0 space-y-4">
-                <p class="text-gray-700 dark:text-gray-300" data-ref="https://english.news.cn/20260102/b8b61a2d99284df996cae87aee15356e/c.html|3">
-                  Экспорт полупроводников достиг нового рекорда в
-                  <span class="mx-1 px-1.5 py-0.5 rounded-md bg-accent-100 dark:bg-accent-900/30 text-accent-800 dark:text-accent-300 font-semibold text-sm">$173.39 млрд</span>
-                  в 2025 году, увеличившись на 22.2% по сравнению с предыдущим годом. Этот рост был вызван сильным глобальным спросом на чипы памяти для центров обработки данных, связанных с искусственным интеллектом.
-                </p>
-                <p class="text-gray-700 dark:text-gray-300" data-ref="https://english.news.cn/20260102/b8b61a2d99284df996cae87aee15356e/c.html|3">
-                  В марте 2026 года экспорт полупроводников достиг беспрецедентного уровня более
-                  <span class="mx-1 px-1.5 py-0.5 rounded-md bg-accent-100 dark:bg-accent-900/30 text-accent-800 dark:text-accent-300 font-semibold text-sm">$30 млрд</span>,
-                  что свидетельствует о продолжении сильной динамики в секторе.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="hs-accordion card-interactive bg-white/80 backdrop-blur-sm dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
-            <button class="hs-accordion-toggle w-full flex justify-between items-center p-4 text-left hover:bg-accent-50 dark:hover:bg-gray-700/50 transition-colors rounded-xl" id="hs-export-2">
-              <div class="flex items-center space-x-4">
-                <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
-                  <i data-lucide="ship" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
-                </div>
-                <span class="font-semibold text-lg text-primary-700 dark:text-primary-300">Судостроение</span>
-              </div>
-              <i data-lucide="chevron-down" class="hs-accordion-active:rotate-180 transition-transform duration-300 w-5 h-5 text-primary-600 dark:text-primary-400"></i>
-            </button>
-            <div id="hs-collapse-export-2" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-export-2">
-              <div class="p-6 pt-0 space-y-4">
-                <p class="text-gray-700 dark:text-gray-300" data-ref="https://english.news.cn/20260102/b8b61a2d99284df996cae87aee15356e/c.html|3">
-                  Судостроение стало вторым крупнейшим экспортным сектором, достигнув
-                  <span class="mx-1 px-1.5 py-0.5 rounded-md bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 font-semibold text-sm">$32.03 млрд</span>
-                  в 2025 году с ростом на 24.9%. Этот сектор показал одну из самых высоких темпов роста среди всех категорий экспорта.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="hs-accordion card-interactive bg-white/80 backdrop-blur-sm dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
-            <button class="hs-accordion-toggle w-full flex justify-between items-center p-4 text-left hover:bg-accent-50 dark:hover:bg-gray-700/50 transition-colors rounded-xl" id="hs-export-3">
-              <div class="flex items-center space-x-4">
-                <div class="flex-shrink-0 w-12 h-12 bg-accent-100 dark:bg-accent-900/30 rounded-lg flex items-center justify-center">
-                  <i data-lucide="car" class="w-6 h-6 text-accent-600 dark:text-accent-400"></i>
-                </div>
-                <span class="font-semibold text-lg text-accent-700 dark:text-accent-300">Автомобильная Промышленность</span>
-              </div>
-              <i data-lucide="chevron-down" class="hs-accordion-active:rotate-180 transition-transform duration-300 w-5 h-5 text-accent-600 dark:text-accent-400"></i>
-            </button>
-            <div id="hs-collapse-export-3" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-export-3">
-              <div class="p-6 pt-0 space-y-4">
-                <p class="text-gray-700 dark:text-gray-300" data-ref="https://english.news.cn/20260102/b8b61a2d99284df996cae87aee15356e/c.html|3">
-                  Автомобильные поставки увеличились на
-                  <span class="mx-1 px-1.5 py-0.5 rounded-md bg-accent-100 dark:bg-accent-900/30 text-accent-800 dark:text-accent-300 font-semibold text-sm">1.7%</span>
-                  до $71.98 млрд в 2025 году. Несмотря на скромный рост, этот сектор остается важной частью экспортного портфеля страны.
-                </p>
-                <p class="text-gray-700 dark:text-gray-300" data-ref="https://english.news.cn/20260102/b8b61a2d99284df996cae87aee15356e/c.html|3">
-                  Компьютерный экспорт также показал положительную динамику, увеличившись на 4.5% до $13.75 млрд, что свидетельствует о растущем спросе на технологии.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Semiconductor Boom Section -->
-    <section id="semiconductor" class="py-20 bg-white/80 dark:bg-gray-900" data-aos="fade-up">
-      <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-8 text-primary-700 dark:text-primary-300 text-center">
-          Суперцикл Памяти и Глобальный Спрос
-        </h2>
-
-        <div class="grid md:grid-cols-2 gap-8 items-start mb-12">
-          <div class="space-y-6">
-            <p class="text-gray-700 dark:text-gray-300" data-ref="https://www.linkedin.com/posts/adamlwalker_omdia-semiconductor-market-surpasses-830bn-activity-7440356759472369664-WTtv|2">
-              Глобальная полупроводниковая промышленность превысила
-              <span class="mx-1 px-1.5 py-0.5 rounded-md bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 font-semibold text-sm">$830 млрд</span>
-              в выручке в 2025 году, отметив второй год подряд более чем 20% годового роста. Этот рост обусловлен ростом рабочих нагрузок ИИ, особенно спросом на DRAM и High Bandwidth Memory (HBM).
-            </p>
-
-            <p class="text-gray-700 dark:text-gray-300" data-ref="https://www.linkedin.com/posts/adamlwalker_omdia-semiconductor-market-surpasses-830bn-activity-7440356759472369664-WTtv|2">
-              Gartner прогнозирует, что мировая выручка от полупроводников превысит
-              <span class="mx-1 px-1.5 py-0.5 rounded-md bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 font-semibold text-sm">$1.3 трлн</span>
-              в 2026 году, что представляет собой ожидаемый рост на 64% — самый сильный показатель за последние два десятилетия.
-            </p>
-          </div>
-
-          <div class="card-interactive p-6 rounded-xl shadow-md bg-gradient-to-br from-primary-50 to-accent-50 dark:from-primary-900/20 dark:to-accent-900/20">
-            <h3 class="text-xl font-semibold mb-4 text-primary-700 dark:text-primary-300">Феномен Memflation</h3>
-            <p class="text-gray-700 dark:text-gray-300 mb-4" data-ref="https://www.linkedin.com/posts/adamlwalker_omdia-semiconductor-market-surpasses-830bn-activity-7440356759472369664-WTtv|2">
-              Явление, известное как "memflation", происходит, когда избыточный спрос на инфраструктуру ИИ потребляет большую долю производства памяти. Аналитик Gartner Раджив Раджпут прогнозирует, что цены на DRAM вырастут на
-              <span class="mx-1 px-1.5 py-0.5 rounded-md bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 font-semibold text-sm">125%</span>,
-              а цены на NAND флэш — на
-              <span class="mx-1 px-1.5 py-0.5 rounded-md bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 font-semibold text-sm">234%</span>
-              в 2026 году.
-            </p>
-            <div class="pl-4 pr-3 py-3 border-l-4 border-amber-500 bg-amber-50/40 dark:bg-amber-900/30 rounded-r-lg">
-              <p class="text-sm font-medium text-amber-900 dark:text-amber-100 leading-relaxed" data-ref="https://www.linkedin.com/posts/adamlwalker_omdia-semiconductor-market-surpasses-830bn-activity-7440356759472369664-WTtv|2">
-                <i data-lucide="alert-triangle" class="inline-block w-4 h-4 mr-1.5 -mt-0.5"></i>
-                Предупреждение: Ожидается, что цены на память не снизятся значительно до конца 2027 года, что может подавить спрос на продукты, не связанные с ИИ, до тех пор, пока ценообразование не стабилизируется.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="pl-4 pr-3 py-3 border-l-4 border-primary-500 bg-primary-50/40 dark:bg-primary-900/30 rounded-r-lg mb-8">
-          <p class="text-sm font-medium text-primary-900 dark:text-primary-100 leading-relaxed" data-ref="https://www.linkedin.com/posts/adamlwalker_omdia-semiconductor-market-surpasses-830bn-activity-7440356759472369664-WTtv|2">
-            <i data-lucide="info" class="inline-block w-4 h-4 mr-1.5 -mt-0.5"></i>
-            Чипы ИИ: Чипы ИИ составят примерно 30% от общей выручки от полупроводников в 2026 году, благодаря продолжающимся инвестициям от гипермасштабных провайдеров. Это создает устойчивый спрос на южнокорейские полупроводниковые компании.
-          </p>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-800 rounded-xl shadow-md">
-            <div class="flex items-center space-x-4 mb-4">
-              <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
-                <i data-lucide="trending-up" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
-              </div>
-              <h3 class="font-semibold text-lg text-primary-700 dark:text-primary-300">Рост DRAM</h3>
-            </div>
-            <p class="text-gray-700 dark:text-gray-300 text-sm" data-ref="https://www.linkedin.com/posts/magicjo8258_semiconductor-ai-memory-activity-7445539733667065856-Qzkx|4">
-              Цены на память DRAM выросли на 90-95% квартал к кварталу из-за сильного дисбаланса спроса и предложения
-            </p>
-          </div>
-
-          <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-800 rounded-xl shadow-md">
-            <div class="flex items-center space-x-4 mb-4">
-              <div class="flex-shrink-0 w-12 h-12 bg-accent-100 dark:bg-accent-900/30 rounded-lg flex items-center justify-center">
-                <i data-lucide="percent" class="w-6 h-6 text-accent-600 dark:text-accent-400"></i>
-              </div>
-              <h3 class="font-semibold text-lg text-accent-700 dark:text-accent-300">Цены Samsung</h3>
-            </div>
-            <p class="text-gray-700 dark:text-gray-300 text-sm" data-ref="https://www.linkedin.com/posts/magicjo8258_semiconductor-ai-memory-activity-7445539733667065856-Qzkx|4">
-              Samsung завершила повышение цен на 30% для своих продуктов DRAM во втором квартале 2026 года
-            </p>
-          </div>
-
-          <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-800 rounded-xl shadow-md">
-            <div class="flex items-center space-x-4 mb-4">
-              <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
-                <i data-lucide="globe" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
-              </div>
-              <h3 class="font-semibold text-lg text-primary-700 dark:text-primary-300">Pax Silica</h3>
-            </div>
-            <p class="text-gray-700 dark:text-gray-300 text-sm" data-ref="https://www.linkedin.com/posts/magicjo8258_semiconductor-ai-memory-activity-7445539733667065856-Qzkx|4">
-              Геополитический союз США, Индии, Японии и Южной Кореи для обеспечения цепочек поставок полупроводников
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Monetary Policy Section -->
-    <section id="policy" class="py-20 bg-primary-50/50 dark:bg-gray-800" data-aos="fade-up">
-      <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-8 text-primary-700 dark:text-primary-300 text-center">
-          Монетарная Политика и Процентные Ставки
-        </h2>
-
-        <div class="grid md:grid-cols-2 gap-8 items-start mb-12">
-          <div class="space-y-6">
-            <p class="text-gray-700 dark:text-gray-300" data-ref="https://www.statista.com/statistics/1235224/south-korea-central-bank-base-rate/?srsltid=AfmBOopo5svr1prXzmfH25KBl1WHcqM94mukbZDkal7D4dfqHKpRJUjt|9">
-              Между сентябрем 2024 года и мартом 2026 года центральный банк Южной Кореи реализовал
-              <span class="mx-1 px-1.5 py-0.5 rounded-md bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 font-semibold text-sm">четыре</span>
-              снижения процентных ставок, с окончательным снижением, которое понизило процентную ставку до определенного уровня. Эти меры направлены на поддержание экономического роста и стимулирование внутреннего спроса.
-            </p>
-
-            <p class="text-gray-700 dark:text-gray-300" data-ref="https://www.investing.com/economic-calendar/south-korean-interest-rate-decision-473|10">
-              Процентная ставка оставалась стабильной на уровне
-              <span class="mx-1 px-1.5 py-0.5 rounded-md bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 font-semibold text-sm">2.50%</span>
-              в январе, ноябре и октябре 2025 года, что указывает на осторожный подход центрального банка к денежно-кредитной политике в условиях экономической неопределенности.
-            </p>
-          </div>
-
-          <div class="card-interactive p-6 rounded-xl shadow-md bg-white/90 backdrop-blur-sm dark:bg-gray-900">
-            <h3 class="text-xl font-semibold mb-4 text-primary-700 dark:text-primary-300">Курс Валюты</h3>
-            <p class="text-gray-700 dark:text-gray-300 mb-4" data-ref="https://www.linkedin.com/posts/daretoimprove-finance_asia-market-brief-activity-7437409180384329728-i6xF|6">
-              Курс доллара США к южнокорейской воне консолидировался около уровня
-              <span class="mx-1 px-1.5 py-0.5 rounded-md bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 font-semibold text-sm">1,510</span>,
-              важное развитие после резкого отскока от 17-летнего максимума. Стабильность валютного курса поддерживает конкурентоспособность экспорта.
-            </p>
-            <div class="pl-4 pr-3 py-3 border-l-4 border-primary-500 bg-primary-50/40 dark:bg-primary-900/30 rounded-r-lg">
-              <p class="text-sm font-medium text-primary-900 dark:text-primary-100 leading-relaxed" data-ref="https://www.linkedin.com/posts/daretoimprove-finance_asia-market-brief-activity-7437409180384329728-i6xF|6">
-                <i data-lucide="info" class="inline-block w-4 h-4 mr-1.5 -mt-0.5"></i>
-                Валютная стабильность: Консолидация курса USD/KRW около 1,510 уровня способствует стабильности экспорта и снижает валютные риски для компаний.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="pl-4 pr-3 py-3 border-l-4 border-amber-500 bg-amber-50/40 dark:bg-amber-900/30 rounded-r-lg mb-8">
-          <p class="text-sm font-medium text-amber-900 dark:text-amber-100 leading-relaxed" data-ref="https://www.statista.com/statistics/1235224/south-korea-central-bank-base-rate/?srsltid=AfmBOopo5svr1prXzmfH25KBl1WHcqM94mukbZDkal7D4dfqHKpRJUjt|9">
+        <div class="mt-8 pl-4 pr-3 py-3 border-l-4 border-amber-500 bg-amber-50/40 dark:bg-amber-900/30 rounded-r-lg">
+          <p class="text-sm font-medium text-amber-900 dark:text-amber-100 leading-relaxed" data-ref="https://www.nature.com/articles/1395453|25">
             <i data-lucide="alert-triangle" class="inline-block w-4 h-4 mr-1.5 -mt-0.5"></i>
-            Важное замечание: Уровень процентной ставки после четырех снижений не указан в источнике, что требует дополнительного анализа для полного понимания текущей монетарной политики.
+            Предупреждение: Аллостатическая перегрузка может привести к дисрегуляции и патологии, когда системы организма истощаются и теряют способность эффективно реагировать на будущие стрессоры.
           </p>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-800 rounded-xl shadow-md">
-            <h3 class="text-lg font-semibold mb-4 text-primary-700 dark:text-primary-300">Стабильность Ставок</h3>
-            <p class="text-gray-700 dark:text-gray-300 text-sm" data-ref="https://www.investing.com/economic-calendar/south-korean-interest-rate-decision-473|10">
-              Стабильная процентная ставка 2.50% в 2025 году указывает на осторожный подход к денежно-кредитной политике
-            </p>
-          </div>
-
-          <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-800 rounded-xl shadow-md">
-            <h3 class="text-lg font-semibold mb-4 text-accent-700 dark:text-accent-300">Валютная Политика</h3>
-            <p class="text-gray-700 dark:text-gray-300 text-sm" data-ref="https://www.linkedin.com/posts/daretoimprove-finance_asia-market-brief-activity-7437409180384329728-i6xF|6">
-              Консолидация курса USD/KRW около 1,510 уровня поддерживает конкурентоспособность экспорта
-            </p>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- Macroeconomic Outlook Section -->
-    <section id="macro" class="py-20 bg-white/80 dark:bg-gray-900" data-aos="fade-up">
-      <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-8 text-primary-700 dark:text-primary-300 text-center">
-          Макроэкономический Прогноз и Перспективы
+    <!-- Hippocampus Damage Section -->
+    <section id="hippocampus" class="py-20 bg-primary-50/50 dark:bg-gray-800" data-aos="fade-up">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-8 text-primary-700 dark:text-primary-300">
+          Повреждение гиппокампа при хроническом стрессе
         </h2>
 
-        <div class="grid md:grid-cols-2 gap-8 items-start mb-12">
+        <div class="grid md:grid-cols-2 gap-8 items-start mb-10">
           <div class="space-y-6">
-            <p class="text-gray-700 dark:text-gray-300" data-ref="https://privatebank.jpmorgan.com/apac/en/insights/markets-and-investing/asf/2026-asia-outlook|7">
-              JP Morgan Private Bank ожидает реальный рост ВВП в размере
-              <span class="mx-1 px-1.5 py-0.5 rounded-md bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 font-semibold text-sm">4.3%</span>
-              (диапазон: 4.1–4.6%) в 2026 году, замедляясь по сравнению с 2025 годом из-за высокой базы для роста экспорта. Политики ожидают поддержки экономического роста.
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://www.researchgate.net/publication/12307542_Glucocorticoids_and_Hippocampal_Atrophy_in_Neuropsychiatric_Disorders|14">
+              Хронический стресс дополнительно ослабляет обратную связь гиппокампа с осью ГГА, поддерживая гиперкортизолизм и способствуя длительному когнитивному ухудшению. Это создает порочный круг, где повреждение гиппокампа усиливает продолжение стрессового ответа.
             </p>
 
-            <p class="text-gray-700 dark:text-gray-300" data-ref="https://www.imf.org/-/media/files/publications/cr/2025/english/1korea2025003-source-pdf.pdf|8">
-              Отрицательный разрыв выпуска прогнозируется постепенно закрываться начиная с 2026 года по мере усиления внутреннего спроса и восстановления экспорта при смягчении глобальной торговой политики. Это указывает на улучшение общего состояния экономики.
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC11353953/|41">
+              Хронический стресс приводит к чрезмерному производству глюкокортикоидов, которое нарушает функцию гиппокампа — области мозга, критически важной для обучения, памяти и эмоциональной регуляции.
+            </p>
+
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC4561403/|48">
+              Исследования на людях и животных показали, что стресс изменяет морфологию нейронов, подавляет нейропролиферацию и уменьшает объем гиппокампа. Эти изменения связаны с когнитивными нарушениями и повышенным риском психических заболеваний.
             </p>
           </div>
 
-          <div class="card-interactive p-6 rounded-xl shadow-md bg-gradient-to-br from-accent-50 to-primary-50 dark:from-accent-900/20 dark:to-primary-900/20">
-            <h3 class="text-xl font-semibold mb-4 text-accent-700 dark:text-accent-300">Экспортные Тренды</h3>
-            <p class="text-gray-700 dark:text-gray-300 mb-4" data-ref="https://english.news.cn/20260102/b8b61a2d99284df996cae87aee15356e/c.html|3">
-              Экспорт в ключевые рынки показал разнообразные тенденции в 2025 году: поставки в США снизились на
-              <span class="mx-1 px-1.5 py-0.5 rounded-md bg-accent-100 dark:bg-accent-900/30 text-accent-800 dark:text-accent-300 font-semibold text-sm">3.8%</span>
-              до $122.87 млрд, экспорт в ASEAN вырос на 7.4% до $122.49 млрд, а экспорт в Европейский Союз увеличился на 3.0% до $70.14 млрд.
-            </p>
-            <div class="pl-4 pr-3 py-3 border-l-4 border-primary-500 bg-primary-50/40 dark:bg-primary-900/30 rounded-r-lg">
-              <p class="text-sm font-medium text-primary-900 dark:text-primary-100 leading-relaxed" data-ref="https://english.news.cn/20260102/b8b61a2d99284df996cae87aee15356e/c.html|3">
-                <i data-lucide="circle-check" class="inline-block w-4 h-4 mr-1.5 -mt-0.5"></i>
-                Географическое расширение: Рост экспорта в ASEAN и ЕС компенсирует снижение в США, демонстрируя диверсификацию торговых партнеров Южной Кореи.
+          <div class="space-y-4">
+            <div class="card-interactive p-5 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
+              <div class="flex items-center space-x-3 mb-3">
+                <i data-lucide="brain" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
+                <h3 class="text-lg font-semibold text-primary-700 dark:text-primary-300" data-ref="https://www.ncbi.nlm.nih.gov/books/NBK3870/|13">Меньший гиппокамп как фактор риска</h3>
+              </div>
+              <p class="text-sm text-gray-700 dark:text-gray-300">
+                Это сильно указывает на то, что маленькие гиппокампы являются фактором риска развития ПТСР, и предполагает, что «атрофия гиппокампа», наблюдаемая у некоторых пациентов с ПТСР, является результатом предрасположенности, а не исключительно следствием травматического стресса.
+              </p>
+            </div>
+
+            <div class="card-interactive p-5 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
+              <div class="flex items-center space-x-3 mb-3">
+                <i data-lucide="zap" class="w-6 h-6 text-accent-600 dark:text-accent-400"></i>
+                <h3 class="text-lg font-semibold text-accent-700 dark:text-accent-300" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC2746750/|116">Ретракция дендритов</h3>
+              </div>
+              <p class="text-sm text-gray-700 dark:text-gray-300">
+                Описанные исследования показывают, что хронический стресс или длительное воздействие глюкокортикоидов может повредить гиппокамп, вызывая дендритическую ретракцию, что приводит к снижению количества и длины базальных ветвей в CA1.
               </p>
             </div>
           </div>
         </div>
 
+        <div class="mb-8">
+          <img
+            src="https://cdn.qwenlm.ai/b9dae233-8018-4115-a4c1-2a7ed18649fc/65c90471-eeb4-4cab-a8bd-b7c43d0ded75/a785d2e3-55f6-430f-a079-bc305c7f7c1b.png?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNvdXJjZV91c2VyX2lkIjoiYjlkYWUyMzMtODAxOC00MTE1LWE0YzEtMmE3ZWQxODY0OWZjIiwicmVzb3VyY2VfaWQiOiI2NWM5MDQ3MS1lZWI0LTRjYWItYThiZC1iN2M0M2QwZGVkNzUiLCJyZXNvdXJjZV9jaGF0X2lkIjpudWxsfQ.7suBjD26EpVIK7U20w_xVo5LwDzKQ9ifBl3ro-BDVN0"
+            alt="Сравнительная схема двух гиппокампов на белом фоне (#FFFFFF). Левый гиппокамп здоровый, имеет светло-коричневую окраску (#8B7355), с полными, разветвленными дендритами, обозначенными зелеными точками (#16A34A) по всей поверхности. Правый гиппокамп поврежденный, окрашен в темно-серый цвет (#374151), с укороченными и скудными дендритами, обозначенными красными точками (#DC2626) только в верхней части. Между двумя гиппокампами расположена горизонтальная стрелка слева направо, окрашенная в оранжевый цвет (#EA580C), с надписью 'Хронический стресс' черным шрифтом. Под изображением расположены три вертикальные стрелки: первая (красная) направлена вниз с надписью 'Кортизол ↑', вторая (желтая) направлена вниз с надписью 'Объем ↓', третья (красная) направлена вниз с надписью 'Нейрогенез ↓'. Все текстовые элементы выполнены черным шрифтом с четкой читаемостью. Композиция представляет собой научную иллюстрацию нейродегенеративных изменений в гиппокампе при хроническом стрессе."
+            class="w-full rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300"
+          />
+        </div>
+
+        <div class="pl-4 pr-3 py-3 border-l-4 border-primary-500 bg-primary-50/40 dark:bg-primary-900/30 rounded-r-lg">
+          <p class="text-sm font-medium text-primary-900 dark:text-primary-100 leading-relaxed" data-ref="https://www.psychiatrypodcast.com/psychiatry-psychotherapy-podcast/episode-217-adverse-childhood-experiences-part-3-aces|132">
+            <i data-lucide="trending-down" class="inline-block w-4 h-4 mr-1.5 -mt-0.5"></i>
+            Критическое наблюдение: Мета-анализ Нельсона и Тумпапа (2017) показал, что пациенты с ПТСР имеют уменьшенный объем гиппокампа (размер эффекта левого гиппокампа=-0.400, p&lt;0.001, 5.24%).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prefrontal Cortex Dysfunction Section -->
+    <section id="prefrontal" class="py-20 bg-white/80 dark:bg-gray-900" data-aos="fade-up">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-8 text-primary-700 dark:text-primary-300">
+          Дисфункция префронтальной коры при хроническом стрессе
+        </h2>
+
+        <div class="space-y-6 mb-10">
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC3463780/|1">
+            Хронический стресс вызывает нарушение пространственной рабочей памяти из-за дисфункции дофаминовой системы префронтальной коры. Это нарушение связано с изменениями в нейротрансмиттерной системе, которая критически важна для когнитивного контроля.
+          </p>
+
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://www.researchgate.net/publication/354215049_Chronic_Stress_Weakens_Connectivity_in_the_Prefrontal_Cortex_Architectural_and_Molecular_Changes|2">
+            Хронический стресс ослабляет связность префронтальной коры, что приводит к нарушению функции рабочей памяти. Эти изменения в нейронной сети могут объяснять когнитивные дефициты, наблюдаемые при хроническом стрессе.
+          </p>
+
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://www.sciencedirect.com/science/article/am/pii/S0149763423003470|3">
+            NR2B-субъединица в префронтальной коре играет двойственную роль в функции рабочей памяти и психических расстройствах. Она действует как двойной меч, обеспечивая как нормальную когнитивную функцию, так и потенциальные пути к патологии при дисфункции.
+          </p>
+        </div>
+
         <div class="hs-accordion-group space-y-4">
           <div class="hs-accordion card-interactive bg-white/80 backdrop-blur-sm dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
-            <button class="hs-accordion-toggle w-full flex justify-between items-center p-4 text-left hover:bg-primary-50 dark:hover:bg-gray-700/50 transition-colors rounded-xl" id="hs-macro-1">
+            <button class="hs-accordion-toggle w-full flex justify-between items-center p-4 text-left hover:bg-primary-50 dark:hover:bg-gray-700/50 transition-colors rounded-xl" id="hs-prefrontal-1">
               <div class="flex items-center space-x-4">
                 <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
-                  <i data-lucide="activity" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
+                  <i data-lucide="cpu" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
                 </div>
-                <span class="font-semibold text-lg text-primary-700 dark:text-primary-300">Глобальные Тренды</span>
+                <span class="font-semibold text-lg text-primary-700 dark:text-primary-300">Нарушение рабочей памяти</span>
               </div>
               <i data-lucide="chevron-down" class="hs-accordion-active:rotate-180 transition-transform duration-300 w-5 h-5 text-primary-600 dark:text-primary-400"></i>
             </button>
-            <div id="hs-collapse-macro-1" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-macro-1">
+            <div id="hs-collapse-prefrontal-1" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-prefrontal-1">
               <div class="p-6 pt-0 space-y-4">
-                <p class="text-gray-700 dark:text-gray-300" data-ref="https://www.linkedin.com/posts/magicjo8258_semiconductor-ai-memory-activity-7445539733667065856-Qzkx|4">
-                  Глобальные продажи полупроводников выросли на 61.8% год к году в феврале 2026 года, достигнув $88.8 млрд, что ставит индустрию на путь превышения годового рубежа в $1 трлн в 2026 году. TSMC сообщила о 35% росте выручки до $35.6 млрд в первом квартале, с чистой прибылью, выросшей на 58% до $18 млрд.
+                <p class="text-gray-700 dark:text-gray-300" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC3463780/|1">
+                  Хронический стресс вызывает нарушение пространственной рабочей памяти из-за дисфункции дофаминовой системы префронтальной коры. Это нарушение связано с изменениями в нейротрансмиттерной системе, которая критически важна для когнитивного контроля.
+                </p>
+                <p class="text-gray-700 dark:text-gray-300" data-ref="https://www.researchgate.net/publication/354215049_Chronic_Stress_Weakens_Connectivity_in_the_Prefrontal_Cortex_Architectural_and_Molecular_Changes|2">
+                  Хронический стресс ослабляет связность префронтальной коры, что приводит к нарушению функции рабочей памяти. Эти изменения в нейронной сети могут объяснять когнитивные дефициты, наблюдаемые при хроническом стрессе.
                 </p>
               </div>
             </div>
           </div>
 
           <div class="hs-accordion card-interactive bg-white/80 backdrop-blur-sm dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
-            <button class="hs-accordion-toggle w-full flex justify-between items-center p-4 text-left hover:bg-primary-50 dark:hover:bg-gray-700/50 transition-colors rounded-xl" id="hs-macro-2">
+            <button class="hs-accordion-toggle w-full flex justify-between items-center p-4 text-left hover:bg-primary-50 dark:hover:bg-gray-700/50 transition-colors rounded-xl" id="hs-prefrontal-2">
               <div class="flex items-center space-x-4">
                 <div class="flex-shrink-0 w-12 h-12 bg-accent-100 dark:bg-accent-900/30 rounded-lg flex items-center justify-center">
-                  <i data-lucide="trending-up" class="w-6 h-6 text-accent-600 dark:text-accent-400"></i>
+                  <i data-lucide="target" class="w-6 h-6 text-accent-600 dark:text-accent-400"></i>
                 </div>
-                <span class="font-semibold text-lg text-accent-700 dark:text-accent-300">Инвестиционный Климат</span>
+                <span class="font-semibold text-lg text-accent-700 dark:text-accent-300">NR2B-субъединица и двойная роль</span>
               </div>
               <i data-lucide="chevron-down" class="hs-accordion-active:rotate-180 transition-transform duration-300 w-5 h-5 text-accent-600 dark:text-accent-400"></i>
             </button>
-            <div id="hs-collapse-macro-2" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-macro-2">
+            <div id="hs-collapse-prefrontal-2" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-prefrontal-2">
               <div class="p-6 pt-0 space-y-4">
-                <p class="text-gray-700 dark:text-gray-300" data-ref="https://www.linkedin.com/posts/adamlwalker_omdia-semiconductor-market-surpasses-830bn-activity-7440356759472369664-WTtv|2">
-                  Продолжающиеся инвестиции от гипермасштабных провайдеров поддерживают рост рынка ИИ-чипов, составляющих около 30% от общей выручки от полупроводников в 2026 году. Это создает устойчивый спрос на южнокорейские полупроводниковые компании.
+                <p class="text-gray-700 dark:text-gray-300" data-ref="https://www.sciencedirect.com/science/article/am/pii/S0149763423003470|3">
+                  NR2B-субъединица в префронтальной коре играет двойственную роль в функции рабочей памяти и психических расстройствах. Она действует как двойной меч, обеспечивая как нормальную когнитивную функцию, так и потенциальные пути к патологии при дисфункции.
+                </p>
+                <p class="text-gray-700 dark:text-gray-300" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC8064413/|115">
+                  Генерация ментальных представлений во время рабочей памяти зависит от нейротрансмиссии NMDAR с удивительно малым вкладом от AMPAR. Это указывает на специфическую роль NMDAR в поддержании когнитивных функций.
                 </p>
               </div>
             </div>
           </div>
+
+          <div class="hs-accordion card-interactive bg-white/80 backdrop-blur-sm dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+            <button class="hs-accordion-toggle w-full flex justify-between items-center p-4 text-left hover:bg-primary-50 dark:hover:bg-gray-700/50 transition-colors rounded-xl" id="hs-prefrontal-3">
+              <div class="flex items-center space-x-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
+                  <i data-lucide="layers" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
+                </div>
+                <span class="font-semibold text-lg text-primary-700 dark:text-primary-300">Нарушение нейронной связности</span>
+              </div>
+              <i data-lucide="chevron-down" class="hs-accordion-active:rotate-180 transition-transform duration-300 w-5 h-5 text-primary-600 dark:text-primary-400"></i>
+            </button>
+            <div id="hs-collapse-prefrontal-3" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-prefrontal-3">
+              <div class="p-6 pt-0 space-y-4">
+                <p class="text-gray-700 dark:text-gray-300" data-ref="https://www.researchgate.net/publication/354215049_Chronic_Stress_Weakens_Connectivity_in_the_Prefrontal_Cortex_Architectural_and_Molecular_Changes|2">
+                  Хронический стресс ослабляет связность префронтальной коры, что приводит к нарушению функции рабочей памяти. Эти изменения в нейронной сети могут объяснять когнитивные дефициты, наблюдаемые при хроническом стрессе.
+                </p>
+                <p class="text-gray-700 dark:text-gray-300" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC8695640/|130">
+                  Аберрантное созревание и связность префронтальной коры при хроническом стрессе связано с гипофункцией NMDAR. Нарушения в нейронной записи в ПФК также характеризуются блокированием NMDAR, что указывает на ключевую роль этих рецепторов в когнитивных нарушениях.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 pl-4 pr-3 py-3 border-l-4 border-primary-500 bg-primary-50/40 dark:bg-primary-900/30 rounded-r-lg">
+          <p class="text-sm font-medium text-primary-900 dark:text-primary-100 leading-relaxed" data-ref="https://www.academia.edu/35332736/The_Willpower_Instinct|94">
+            <i data-lucide="info" class="inline-block w-4 h-4 mr-1.5 -mt-0.5"></i>
+            Интересный факт: Сапольски, нейробиолог из Стэнфорда, утверждает, что основная задача современной префронтальной коры — смещать работу мозга и, следовательно, поведение в пользу более долгосрочных интересов.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Neuroinflammation Section -->
+    <section id="neuroinflammation" class="py-20 bg-accent-50/50 dark:bg-gray-800" data-aos="fade-up">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-8 text-accent-700 dark:text-accent-300">
+          Нейровоспаление при хроническом стрессе
+        </h2>
+
+        <div class="space-y-6 mb-10">
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC4828495/|33">
+            Существуют согласованные доказательства того, что различные психосоциальные стрессоры приводят к повышенному уровню активности микроглии в гиппокампе, и есть хорошие доказательства того, что это также происходит при хроническом стрессе. Микроглия — это иммунные клетки центральной нервной системы, которые активируются при воспалении.
+          </p>
+
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://www.mdpi.com/1422-0067/25/10/5085|34">
+            Многие исследования, исследующие эффекты хронического стресса на нейровоспаление в моделях грызунов, идентифицировали значительные изменения в модуляторах воспаления. Эти изменения включают активацию микроглии и увеличение продукции провоспалительных цитокинов.
+          </p>
+
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://www.researchgate.net/publication/380408492_Chronic_Stress-Induced_Neuroinflammation_Relevance_of_Rodent_Models_to_Human_Disease|35">
+            Хроническое воздействие стресса известно как провоцирующий устойчивый воспалительный ответ, включающий ключевые модуляторы, такие как ядерный фактор-κB (NF-κB), который играет центральную роль в регуляции воспалительных реакций.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 mb-10">
+          <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
+            <div class="flex items-center space-x-4 mb-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-accent-100 dark:bg-accent-900/30 rounded-lg flex items-center justify-center">
+                <i data-lucide="octagon-alert" class="w-6 h-6 text-accent-600 dark:text-accent-400"></i>
+              </div>
+              <h3 class="text-lg font-semibold text-accent-700 dark:text-accent-300" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC9453699/|71">Активация микроглии</h3>
+            </div>
+            <p class="text-sm text-gray-700 dark:text-gray-300">
+              Микроглия в стресс-чувствительных областях мозга увеличивает экспрессию нескольких маркеров, связанных с их активацией, включая Iba1, CD11b, CD86, TLR4. Это указывает на систематическую активацию иммунной системы при хроническом стрессе.
+            </p>
+          </div>
+
+          <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
+            <div class="flex items-center space-x-4 mb-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
+                <i data-lucide="flame" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
+              </div>
+              <h3 class="text-lg font-semibold text-primary-700 dark:text-primary-300" data-ref="https://www.sciencedirect.com/science/article/pii/S0969996126000227|72">Астроциты и воспаление</h3>
+            </div>
+            <p class="text-sm text-gray-700 dark:text-gray-300">
+              Когда хронический стресс вызывает нейровоспаление, воспалительные цитокины, производимые микроглией, такие как IL-1α и TNF-α, направляют астроциты к A1-подобной конверсии. Это приводит к образованию нейротоксичных астроцитов, которые теряют свои поддерживающие функции.
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://www.frontiersin.org/journals/behavioral-neuroscience/articles/10.3389/fnbeh.2025.1598178/full|87">
+            В контексте депрессивного расстройства хронический стресс активирует микроглию, побуждая их высвобождать различные провоспалительные цитокины (например, IL-1β, TNF-α, IL-6), которые способствуют развитию и поддержанию депрессивных симптомов.
+          </p>
+
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://www.nature.com/articles/s41392-023-01588-0|73">
+            Реактивная микроглия производит IL-1α, TNFα и C1q, которые вызывают конверсию фенотипа нейротоксичных астроцитов A1. После индукции астроциты A1 теряют свои поддерживающие функции и начинают производить токсичные молекулы, повреждающие нейроны.
+          </p>
+
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://link.springer.com/article/10.1186/s12974-022-02492-0|135">
+            Сканирование ПЭТ показало, что микроглия увеличена в ACC во время эпизодов депрессивного расстройства. Одновременно уровни TSPO (маркер активации микроглии) повышены, что указывает на активированное состояние иммунной системы в мозге.
+          </p>
+        </div>
+
+        <div class="mt-8 pl-4 pr-3 py-3 border-l-4 border-amber-500 bg-amber-50/40 dark:bg-amber-900/30 rounded-r-lg">
+          <p class="text-sm font-medium text-amber-900 dark:text-amber-100 leading-relaxed" data-ref="https://www.cell.com/neuron/fulltext/S0896-6273(09)00743-0|89">
+            <i data-lucide="circle-alert" class="inline-block w-4 h-4 mr-1.5 -mt-0.5"></i>
+            Важное замечание: В этом мини-обзоре мы обсуждаем контексты, в которых глюкокортикоиды усиливают воспаление ЦНС, и указываем направления для будущих исследований. Это подчеркивает сложную роль кортизола в нейровоспалении.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Medical Community Criticism Section -->
+    <section id="criticism" class="py-20 bg-white/80 dark:bg-gray-900" data-aos="fade-up">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-8 text-primary-700 dark:text-primary-300">
+          Критика медицинского сообщества за игнорирование хронического стресса
+        </h2>
+
+        <div class="space-y-6 mb-10">
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://journals.sagepub.com/doi/10.1177/18344909241289222|43">
+            Хронические стрессоры, в частности, могут вызывать адаптивные реакции, такие как депрессия, тревога, когнитивные нарушения и сердечно-сосудистые заболевания. Эти реакции часто недооцениваются медицинским сообществом, несмотря на их распространенность и серьезные последствия для здоровья.
+          </p>
+
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC11872152/|17">
+            Психологический стресс в целом считается связанным с повышенным риском сердечно-сосудистых заболеваний (ССЗ), но результаты варьировались в зависимости от того, как измерялся стресс, какие типы ССЗ изучались и как контролировались другие факторы риска. Это указывает на необходимость более систематического подхода к оценке стресса в клинической практике.
+          </p>
+
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://www.thelancet.com/journals/lanepe/article/PIIS2666-7762(25)00165-6/fulltext|19">
+            В этой серии статьи мы сосредотачиваемся на распространенных психических расстройствах, связанных с риском ССЗ, включая депрессивное расстройство, тревожные расстройства и посттравматическое стрессовое расстройство. Эти расстройства часто недооцениваются в кардиологической практике, несмотря на их значительное влияние на сердечно-сосудистое здоровье.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 mb-10">
+          <div class="card-interactive p-6 bg-primary-50/50 dark:bg-primary-900/20 rounded-xl shadow-md">
+            <div class="flex items-center space-x-4 mb-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
+                <i data-lucide="heart-crack" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
+              </div>
+              <h3 class="text-lg font-semibold text-primary-700 dark:text-primary-300" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC9225328/|118">Сердечно-сосудистые риски</h3>
+            </div>
+            <p class="text-sm text-gray-700 dark:text-gray-300">
+              Психологический стресс является возникающим фактором риска и прогностическим фактором для ишемической болезни сердца и инсульта независимо от традиционных факторов риска. Это подчеркивает необходимость интеграции оценки стресса в кардиологическую практику.
+            </p>
+          </div>
+
+          <div class="card-interactive p-6 bg-accent-50/50 dark:bg-accent-900/20 rounded-xl shadow-md">
+            <div class="flex items-center space-x-4 mb-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-accent-100 dark:bg-accent-900/30 rounded-lg flex items-center justify-center">
+                <i data-lucide="brain-circuit" class="w-6 h-6 text-accent-600 dark:text-accent-400"></i>
+              </div>
+              <h3 class="text-lg font-semibold text-accent-700 dark:text-accent-300" data-ref="https://journals.sagepub.com/doi/10.1177/18344909241289222|43">Недооцененные реакции</h3>
+            </div>
+            <p class="text-sm text-gray-700 dark:text-gray-300">
+              Хронические стрессоры могут вызывать адаптивные реакции, такие как депрессия, тревога, когнитивные нарушения и сердечно-сосудистые заболевания. Эти реакции часто недооцениваются медицинским сообществом.
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://www.sciencedirect.com/science/article/pii/S073510972407298X|18">
+            Острый психосоциальный стресс может вызывать коронарные события у женщин с лежащей в основе коронарной болезнью или проходить разрешение для создания адаптации. Это указывает на сложную взаимосвязь между стрессом и сердечно-сосудистыми событиями, требующую более внимательного изучения.
+          </p>
+
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC8578196/|65">
+            Хронические жизненные стрессоры являются значительными независимыми факторами риска сердечно-сосудистых событий у пожилых американцев. Эти данные подчеркивают необходимость учета хронического стресса в оценке риска сердечно-сосудистых заболеваний у пожилых людей.
+          </p>
+
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://www.mdpi.com/1422-0067/21/21/7818|66">
+            Целью этой работы является предоставление всестороннего обзора исследований, сосредоточенных на роли острого и хронического стресса как у здоровых людей, так и у пациентов с сердечно-сосудистыми заболеваниями. Это подчеркивает необходимость более комплексного понимания влияния стресса на сердечно-сосудистое здоровье.
+          </p>
+        </div>
+
+        <div class="mt-8 pl-4 pr-3 py-3 border-l-4 border-primary-500 bg-primary-50/40 dark:bg-primary-900/30 rounded-r-lg">
+          <p class="text-sm font-medium text-primary-900 dark:text-primary-100 leading-relaxed" data-ref="https://podcasts.apple.com/ca/podcast/robert-sapolsky-on-the-toxic-intersection-of/id1081584611?i=1000428368813|81">
+            <i data-lucide="circle-alert" class="inline-block w-4 h-4 mr-1.5 -mt-0.5"></i>
+            Критическая проблема: Бедность и стресс существуют в петле Doom вместе, каждый усиливая эффекты другого на мозг и тело, углубляя их вред. Это указывает на необходимость системного подхода к решению проблемы стресса в социально-экономически неблагополучных группах.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Practical Recommendations Section -->
+    <section id="recommendations" class="py-20 bg-primary-50/50 dark:bg-gray-800" data-aos="fade-up">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-8 text-primary-700 dark:text-primary-300">
+          Практические рекомендации по управлению стрессом
+        </h2>
+
+        <div class="space-y-6 mb-10">
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://www.mayoclinic.org/healthy-lifestyle/stress-management/in-depth/stress/art-20046037|20">
+            Ешьте здоровую пищу и занимайтесь регулярной физической активностью. Выполняйте расслабляющие упражнения, такие как йога, глубокое дыхание, массаж или медитация. Ведите дневник. Уделяйте время себе. Эти простые, но эффективные методы могут значительно снизить уровень хронического стресса.
+          </p>
+
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC5485368/|4">
+            Еще одна стратегия, которая привлекает все большее внимание для улучшения мозга и когнитивного резерва, — это медитация осознанности. Мета-аналитический обзор (из 21 исследования) показал положительные эффекты медитации осознанности на когнитивные функции и общее благополучие.
+          </p>
+
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC8293659/|6">
+            Регулярная физическая активность и лечение факторов риска сердечно-сосудистых заболеваний. Практики медитации и осознанности также были показаны как эффективные для улучшения когнитивного старения и поддержания мозгового здоровья.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 mb-10">
+          <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
+            <div class="flex items-center space-x-4 mb-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
+                <i data-lucide="heart-handshake" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
+              </div>
+              <h3 class="text-lg font-semibold text-primary-700 dark:text-primary-300" data-ref="https://www.mayoclinic.org/healthy-lifestyle/stress-management/in-depth/stress/art-20046037|20">Медитация осознанности</h3>
+            </div>
+            <p class="text-sm text-gray-700 dark:text-gray-300">
+              Медитация осознанности — это форма расслабляющих упражнений, которая помогает управлять стрессом. Она включает в себя сосредоточение внимания на настоящем моменте и осознанное принятие мыслей и чувств без суждения.
+            </p>
+          </div>
+
+          <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
+            <div class="flex items-center space-x-4 mb-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-accent-100 dark:bg-accent-900/30 rounded-lg flex items-center justify-center">
+                <i data-lucide="dumbbell" class="w-6 h-6 text-accent-600 dark:text-accent-400"></i>
+              </div>
+              <h3 class="text-lg font-semibold text-accent-700 dark:text-accent-300" data-ref="https://www.mayoclinic.org/healthy-lifestyle/stress-management/in-depth/stress/art-20046037|20">Физическая активность</h3>
+            </div>
+            <p class="text-sm text-gray-700 dark:text-gray-300">
+              Регулярная физическая активность является ключевым компонентом управления стрессом. Она помогает снижать уровень кортизола, улучшает настроение и способствует общему физическому и психическому благополучию.
+            </p>
+          </div>
+
+          <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
+            <div class="flex items-center space-x-4 mb-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
+                <i data-lucide="book-open" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
+              </div>
+              <h3 class="text-lg font-semibold text-primary-700 dark:text-primary-300" data-ref="https://www.mayoclinic.org/healthy-lifestyle/stress-management/in-depth/stress/art-20046037|20">Ведение дневника</h3>
+            </div>
+            <p class="text-sm text-gray-700 dark:text-gray-300">
+              Ведение дневника позволяет структурировать мысли, выявлять триггеры стресса и отслеживать прогресс в управлении стрессом. Это простой, но мощный инструмент саморефлексии и эмоциональной регуляции.
+            </p>
+          </div>
+
+          <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
+            <div class="flex items-center space-x-4 mb-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-accent-100 dark:bg-accent-900/30 rounded-lg flex items-center justify-center">
+                <i data-lucide="spa" class="w-6 h-6 text-accent-600 dark:text-accent-400"></i>
+              </div>
+              <h3 class="text-lg font-semibold text-accent-700 dark:text-accent-300" data-ref="https://www.mayoclinic.org/healthy-lifestyle/stress-management/in-depth/stress/art-20046037|20">Расслабляющие упражнения</h3>
+            </div>
+            <p class="text-sm text-gray-700 dark:text-gray-300">
+              Йога, глубокое дыхание, массаж и медитация — все это эффективные расслабляющие упражнения, которые помогают снизить уровень стресса и улучшить общее благополучие.
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://www.nia.nih.gov/sites/default/files/2018-07/reversbility-network-neuroplasticity.pdf|7">
+            Физическая активность (например, от «физической активности» до «танца»). Изменения в функциональной связности покоя связывают медитацию осознанности с уменьшением воспалительных маркеров и улучшением эмоциональной регуляции.
+          </p>
+
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC4344390/|9">
+            Тайчи (TC) — это форма упражнений, также известная как медитативное движение, потому что она сочетает физическую активность с медитацией. Это особенно полезно для пожилых людей и людей с ограниченной мобильностью.
+          </p>
+
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://www.apa.org/ed/precollege/topss/lessons/stress-health.pdf|10">
+            Медитация осознанности набирает популярность в последние годы как эффективная стратегия управления стрессом, но большинство исследований основаны на 8-недельной программе обучения. Это указывает на необходимость систематического подхода к обучению медитации.
+          </p>
+        </div>
+
+        <div class="mt-8 pl-4 pr-3 py-3 border-l-4 border-primary-500 bg-primary-50/40 dark:bg-primary-900/30 rounded-r-lg">
+          <p class="text-sm font-medium text-primary-900 dark:text-primary-100 leading-relaxed" data-ref="https://peterattiamd.com/robertsapolsky/|57">
+            <i data-lucide="lightbulb" class="inline-block w-4 h-4 mr-1.5 -mt-0.5"></i>
+            Практический совет: Медитация — это как упражнения для вашего разума; это мощный и практичный инструмент для управления стрессом и улучшения психического здоровья.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison with Other Experts Section -->
+    <section class="py-20 bg-white/80 dark:bg-gray-900" data-aos="fade-up">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-8 text-primary-700 dark:text-primary-300">
+          Сравнение с другими экспертами
+        </h2>
+
+        <div class="space-y-6 mb-10">
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://www.nature.com/articles/1395453|25">
+            Перспективная статья описывает такую модель (McEwen 1998; McEwen и Stellar 1993) и обсуждает ее применимость к психиатрическим расстройствам, включая депрессивные расстройства, тревожные расстройства, посттравматическое стрессовое расстройство и шизофрению. Эта модель дополняет работу Сапольски, предоставляя более широкую теоретическую основу для понимания стресса.
+          </p>
+
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://www.tandfonline.com/doi/full/10.1080/10253890.2020.1806228|26">
+            Авторы подчеркивают, с первого лица, семинальное влияние Брюса С. МакИвена на поле нейробиологии стресса и дальше. МакИвен внес значительный вклад в развитие теории аллостаза и понимания долгосрочных последствий стресса на мозг и тело.
+          </p>
+
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://www.semanticscholar.org/paper/9079bfc7b6653600bb50d2b3393d3c675b7444d2|74">
+            Нейроэндокринология стресса и старения: гипотеза глюкокортикоидного каскада. Сапольски, Крей, МакИвен. Медицина, биология. Обзоры эндокринологии. 1986. Это фундаментальное исследование легло в основу понимания долгосрочных последствий хронического стресса на организм.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="card-interactive p-6 bg-primary-50/50 dark:bg-primary-900/20 rounded-xl shadow-md">
+            <div class="flex items-center space-x-4 mb-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
+                <i data-lucide="graduation-cap" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
+              </div>
+              <h3 class="text-lg font-semibold text-primary-700 dark:text-primary-300" data-ref="https://www.tandfonline.com/doi/full/10.1080/10253890.2020.1806228|26">Брюс МакИвен</h3>
+            </div>
+            <p class="text-sm text-gray-700 dark:text-gray-300">
+              Семинальное влияние на поле нейробиологии стресса, развитие теории аллостаза
+            </p>
+          </div>
+
+          <div class="card-interactive p-6 bg-accent-50/50 dark:bg-accent-900/20 rounded-xl shadow-md">
+            <div class="flex items-center space-x-4 mb-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-accent-100 dark:bg-accent-900/30 rounded-lg flex items-center justify-center">
+                <i data-lucide="book" class="w-6 h-6 text-accent-600 dark:text-accent-400"></i>
+              </div>
+              <h3 class="text-lg font-semibold text-accent-700 dark:text-accent-300" data-ref="https://www.amazon.com/Why-Zebras-Dont-Ulcers-Third/dp/0805073698|31">Роберт Сапольски</h3>
+            </div>
+            <p class="text-sm text-gray-700 dark:text-gray-300">
+              Автор «Почему зебры не получают язвы», объяснение биологии стресса и его влияния на жизнь
+            </p>
+          </div>
+
+          <div class="card-interactive p-6 bg-primary-50/50 dark:bg-primary-900/20 rounded-xl shadow-md">
+            <div class="flex items-center space-x-4 mb-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
+                <i data-lucide="microscope" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
+              </div>
+              <h3 class="text-lg font-semibold text-primary-700 dark:text-primary-300" data-ref="https://www.semanticscholar.org/paper/9079bfc7b6653600bb50d2b3393d3c675b7444d2|74">Глюкокортикоидный каскад</h3>
+            </div>
+            <p class="text-sm text-gray-700 dark:text-gray-300">
+              Фундаментальное исследование 1986 года о долгосрочных последствиях стресса на организм
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-8 space-y-4">
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://www.researchgate.net/publication/24376619_Lupien_SJ_McEwen_BS_Gunnar_MR_Heim_C_Effects_of_stress_throughout_the_lifespan_on_the_brain_behaviour_and_cognition_Nat_Rev_Neurosci_10_434-445|53">
+            В этом обзоре разработана модель для объяснения, почему разные расстройства возникают у людей, подвергшихся стрессу в разное время своей жизни. Эта модель помогает понять, как возрастные различия в развитии мозга влияют на восприимчивость к стрессовым расстройствам.
+          </p>
+
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://www.nature.com/articles/s41386-025-02261-6|54">
+            Психотические расстройства являются сложными и инвалидирующими состояниями, возникающими из взаимодействия генетических и экологических факторов. Это подчеркивает необходимость комплексного подхода к пониманию и лечению психических расстройств, связанных со стрессом.
+          </p>
         </div>
       </div>
     </section>
@@ -618,50 +753,39 @@
     <!-- Conclusion Section -->
     <section id="conclusion" class="py-20 bg-accent-50/50 dark:bg-gray-800" data-aos="fade-up">
       <div class="max-w-5xl mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-8 text-accent-700 dark:text-accent-300 text-center">
+        <h2 class="text-3xl font-bold mb-8 text-accent-700 dark:text-accent-300">
           Заключение
         </h2>
 
         <div class="space-y-6">
-          <p class="text-lg text-gray-700 dark:text-gray-300">
-            Рост южнокорейского фондового индекса KOSPI и связанного с ним американского ETF KORU обусловлен комплексом макроэкономических факторов, включая сильную экспортную динамику, особенно в секторе полупроводников, благоприятную монетарную политику и глобальный спрос на технологии искусственного интеллекта.
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://www.amazon.com/Why-Zebras-Dont-Ulcers-Third/dp/0805073698|31">
+            Хронический стресс представляет собой серьезную угрозу для здоровья, превышающую естественные адаптационные механизмы организма. В отличие от животных, которые испытывают острую реакцию на угрозу и быстро восстанавливаются, люди подвергаются постоянному психологическому стрессу, который может сохраняться месяцами и годами.
           </p>
 
-          <div class="grid md:grid-cols-3 gap-6 my-8">
-            <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
-              <div class="text-center">
-                <div class="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-2">70%</div>
-                <p class="text-sm text-gray-600 dark:text-gray-400">рост KOSPI за год</p>
-              </div>
-            </div>
-
-            <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
-              <div class="text-center">
-                <div class="text-3xl font-bold text-accent-600 dark:text-accent-400 mb-2">$709.69 млрд</div>
-                <p class="text-sm text-gray-600 dark:text-gray-400">экспорт в 2025</p>
-              </div>
-            </div>
-
-            <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
-              <div class="text-center">
-                <div class="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-2">64%</div>
-                <p class="text-sm text-gray-600 dark:text-gray-400">ожидаемый рост памяти</p>
-              </div>
-            </div>
-          </div>
-
-          <p class="text-gray-700 dark:text-gray-300">
-            Южная Корея демонстрирует впечатляющую экономическую устойчивость, установив рекорды по объему экспорта в $709.69 млрд в 2025 году с торговым профицитом $78.02 млрд. Полупроводниковый сектор стал ключевым драйвером роста, увеличившись на 22.2% до $173.39 млрд, что соответствует глобальному суперциклу памяти.
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://www.researchgate.net/publication/12307542_Glucocorticoids_and_Hippocampal_Atrophy_in_Neuropsychiatric_Disorders|14">
+            Хронический стресс ослабляет обратную связь гиппокампа с осью ГГА, поддерживая гиперкортизолизм и способствуя длительному когнитивному ухудшению. Это создает порочный круг, где повреждение гиппокампа усиливает продолжение стрессового ответа.
           </p>
 
-          <p class="text-gray-700 dark:text-gray-300">
-            Монетарная политика оставалась стабильной с процентной ставкой 2.50% в 2025 году, а курс USD/KRW консолидировался около 1,510 уровня, поддерживая конкурентоспособность экспорта. Прогнозируемый рост ВВП 4.3% в 2026 году и закрытие отрицательного разрыва выпуска указывают на улучшение общего состояния экономики.
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC3463780/|1">
+            Хронический стресс вызывает нарушение пространственной рабочей памяти из-за дисфункции дофаминовой системы префронтальной коры. Это нарушение связано с изменениями в нейротрансмиттерной системе, которая критически важна для когнитивного контроля.
           </p>
 
-          <div class="pl-4 pr-3 py-3 border-l-4 border-primary-500 bg-primary-50/40 dark:bg-primary-900/30 rounded-r-lg">
-            <p class="text-sm font-medium text-primary-900 dark:text-primary-100 leading-relaxed">
-              <i data-lucide="trending-up" class="inline-block w-4 h-4 mr-1.5 -mt-0.5"></i>
-              Южная Корея занимает лидирующую позицию среди развивающихся рынков благодаря сильному сочетанию технологического лидерства, экспортной конкурентоспособности и благоприятной макроэкономической среды, что делает KOSPI и ETF KORU привлекательными инвестиционными инструментами.
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC4828495/|33">
+            Существуют согласованные доказательства того, что различные психосоциальные стрессоры приводят к повышенному уровню активности микроглии в гиппокампе, и есть хорошие доказательства того, что это также происходит при хроническом стрессе. Это указывает на систематическую активацию иммунной системы при хроническом стрессе.
+          </p>
+
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://www.mayoclinic.org/healthy-lifestyle/stress-management/in-depth/stress/art-20046037|20">
+            Практические методы управления стрессом, такие как медитация осознанности, регулярная физическая активность, ведение дневника и расслабляющие упражнения, могут значительно снизить уровень хронического стресса и улучшить общее психическое и физическое здоровье.
+          </p>
+
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-ref="https://journals.sagepub.com/doi/10.1177/18344909241289222|43">
+            Хронические стрессоры могут вызывать адаптивные реакции, такие как депрессия, тревога, когнитивные нарушения и сердечно-сосудистые заболевания. Эти реакции часто недооцениваются медицинским сообществом, несмотря на их распространенность и серьезные последствия для здоровья.
+          </p>
+
+          <div class="mt-8 pl-4 pr-3 py-3 border-l-4 border-primary-500 bg-primary-50/40 dark:bg-primary-900/30 rounded-r-lg">
+            <p class="text-sm font-medium text-primary-900 dark:text-primary-100 leading-relaxed" data-ref="https://www.amazon.com/Why-Zebras-Dont-Ulcers-Third/dp/0805073698|31">
+              <i data-lucide="lightbulb" class="inline-block w-4 h-4 mr-1.5 -mt-0.5"></i>
+              Ключевое сообщение: Понимание научных механизмов хронического стресса, описанных Робертом Сапольски, имеет решающее значение для разработки эффективных стратегий профилактики и лечения стрессовых расстройств, а также для повышения осведомленности о важности управления стрессом для здоровья.
             </p>
           </div>
         </div>
@@ -670,33 +794,15 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-primary-900 dark:bg-gray-950 text-white py-12">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid md:grid-cols-3 gap-8">
-        <div>
-          <h3 class="text-lg font-semibold mb-4 text-primary-300">О Исследовании</h3>
-          <p class="text-sm text-gray-300">
-            Комплексный анализ макроэкономических факторов, обусловивших рост южнокорейского фондового рынка KOSPI и ETF KORU.
-          </p>
-        </div>
-        <div>
-          <h3 class="text-lg font-semibold mb-4 text-primary-300">Ключевые Темы</h3>
-          <ul class="space-y-2 text-sm text-gray-300">
-            <li>• Экспортные достижения</li>
-            <li>• Полупроводниковый суперцикл</li>
-            <li>• Монетарная политика</li>
-            <li>• Макроэкономический прогноз</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-lg font-semibold mb-4 text-primary-300">Информация</h3>
-          <p class="text-sm text-gray-300">
-            Все данные основаны на официальных источниках и аналитических отчетах. Исследование охватывает период с 2025 по 2026 год.
-          </p>
-        </div>
-      </div>
-      <div class="mt-8 pt-8 border-t border-primary-800 text-center text-sm text-gray-400">
-        <p>&copy; 2026 Макроэкономический Анализ KOSPI и KORU. Все права защищены.</p>
+  <footer class="py-12 bg-gray-900 dark:bg-black border-t border-primary-500/20">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center space-y-4">
+        <p class="text-gray-400 dark:text-gray-500 text-sm">
+          Исследование нейробиологических последствий хронического стресса на основе научных данных
+        </p>
+        <p class="text-gray-500 dark:text-gray-600 text-xs">
+          Все материалы основаны на рецензируемых научных источниках
+        </p>
       </div>
     </div>
   </footer>
@@ -704,7 +810,7 @@
   <!-- Initialize Libraries -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Initialize Lucide Icons
+      // Initialize Lucide icons
       lucide.createIcons();
 
       // Initialize AOS
@@ -715,22 +821,27 @@
       });
 
       // Progress bar functionality
-      window.addEventListener('scroll', function() {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        document.getElementById('progressBar').style.width = scrolled + '%';
-      });
+      const progressBar = document.getElementById('progressBar');
+      
+      function updateProgressBar() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        progressBar.style.width = scrollPercent + '%';
+      }
+
+      window.addEventListener('scroll', updateProgressBar);
+      updateProgressBar();
 
       // Initialize Preline components
       setTimeout(() => {
-        HSStaticMethods.autoInit();
+        if (window.HSStaticMethods) {
+          window.HSStaticMethods.autoInit();
+        }
       }, 100);
 
       // Initialize citation system
-      setTimeout(() => {
-        initCitationSystem();
-      }, 200);
+      setTimeout(initCitationSystem, 500);
     });
   </script>
 </body>
