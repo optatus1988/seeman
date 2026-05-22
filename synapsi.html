@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Молчаливые синапсы: нейропластический резерв взрослого мозга</title>
+
+  <!-- Essential CDN Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: 'hsl(160, 70%, 95%)',
+              100: 'hsl(160, 70%, 85%)',
+              200: 'hsl(160, 70%, 75%)',
+              300: 'hsl(160, 70%, 65%)',
+              400: 'hsl(160, 70%, 55%)',
+              500: 'hsl(160, 70%, 40%)',
+              600: 'hsl(160, 70%, 35%)',
+              700: 'hsl(160, 70%, 25%)',
+              800: 'hsl(160, 70%, 15%)',
+              900: 'hsl(160, 70%, 10%)'
+            },
+            accent: {
+              50: 'hsl(190, 65%, 95%)',
+              100: 'hsl(190, 65%, 85%)',
+              200: 'hsl(190, 65%, 75%)',
+              300: 'hsl(190, 65%, 65%)',
+              400: 'hsl(190, 65%, 60%)',
+              500: 'hsl(190, 65%, 55%)',
+              600: 'hsl(190, 65%, 50%)',
+              700: 'hsl(190, 65%, 40%)',
+              800: 'hsl(190, 65%, 30%)',
+              900: 'hsl(190, 65%, 20%)'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0"></script>
+
+  <!-- Preline UI Components -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/preline@2.0.3/dist/preline.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/preline@2.0.3/dist/preline.js"></script>
+
+  <!-- Custom Styles -->
+  <style>
+    html { scroll-behavior: smooth; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+
+    .btn-interactive {
+      transition: all 0.2s ease-out;
+    }
+    
+    .btn-interactive:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    
+    .btn-interactive:active {
+      transform: scale(0.95);
+    }
+
+    .card-interactive {
+      transition: all 0.3s ease-out;
+      border: 1px solid transparent;
+      --border-lightness: 40%;
+    }
+
+    .dark .card-interactive {
+      --border-lightness: 60%;
+    }
+
+    .card-interactive:hover {
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      filter: brightness(0.98);
+    }
+    
+    /* Primary colored cards */
+    .card-interactive[class*="primary"]:hover,
+    .card-interactive[class*="white"]:hover,
+    .card-interactive[class*="gray-"]:hover {
+      border-color: hsl(160, 70%, var(--border-lightness));
+    }
+    
+    /* Accent colored cards */
+    .card-interactive[class*="accent"]:hover {
+      border-color: hsl(190, 65%, var(--border-lightness));
+    }
+  </style>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+      const isDark = document.body.classList.contains('dark');
+      document.getElementById('sunIcon').style.display = isDark ? 'block' : 'none';
+      document.getElementById('moonIcon').style.display = isDark ? 'none' : 'block';
+    }
+  </script>
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen">
+  <!-- Progress Bar -->
+  <div class="fixed top-0 left-0 h-1 bg-primary-500 dark:bg-primary-400 z-[60] transition-all duration-300 ease-out" id="progressBar"></div>
+
+  <!-- Floating Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur bg-gray-50/90 dark:bg-gray-900/90 border-b border-primary-500/20 dark:border-primary-600/20">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <h1 class="text-xl font-bold text-primary-700 dark:text-primary-300">Молчаливые синапсы</h1>
+        
+        <nav class="hidden md:flex items-center space-x-6">
+          <a href="#home" class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Главная</a>
+          <a href="#structure" class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Структура</a>
+          <a href="#mechanism" class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Механизм</a>
+          <a href="#learning" class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Обучение</a>
+          <a href="#stimulation" class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Стимуляция</a>
+          <a href="#aging" class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Старение</a>
+          <a href="#conclusion" class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Заключение</a>
+        </nav>
+
+        <button onclick="toggleDarkMode()" class="btn-interactive p-2 rounded-lg bg-primary-100 dark:bg-primary-800 text-primary-600 dark:text-primary-300 hover:bg-primary-200 dark:hover:bg-primary-700 transition-all">
+          <i data-lucide="sun" id="sunIcon" class="w-5 h-5"></i>
+          <i data-lucide="moon" id="moonIcon" class="w-5 h-5" style="display:none"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="pt-24 pb-16">
+    <!-- Hero Section -->
+    <section id="home" class="py-16 bg-primary-50/50 dark:bg-gray-800" data-aos="fade-up">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="space-y-6">
+            <h2 class="text-4xl font-bold text-primary-700 dark:text-primary-300 leading-tight" data-ref="https://scitechdaily.com/super-bizarre-neuroscientists-discover-that-adult-brain-is-filled-with-millions-of-silent-synapses/|6">
+              Молчаливые синапсы: скрытый резерв взрослого мозга
+            </h2>
+            
+            <p class="text-lg text-gray-700 dark:text-gray-300">
+              Ученые обнаружили в мозге взрослых животных миллионы «молчаливых» синапсов — неактивных, но структурно присутствующих нейронных соединений, которые могут быть быстро активированы для обучения и формирования новых воспоминаний без нарушения уже существующих связей.
+            </p>
+
+            <div class="grid grid-cols-3 gap-4 mt-8">
+              <div class="card-interactive p-4 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl text-center">
+                <div class="text-3xl font-bold text-primary-600 dark:text-primary-400">30%</div>
+                <div class="text-xs text-gray-600 dark:text-gray-400 mt-1">синапсов</div>
+              </div>
+              <div class="card-interactive p-4 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl text-center">
+                <div class="text-3xl font-bold text-accent-600 dark:text-accent-400">100%</div>
+                <div class="text-xs text-gray-600 dark:text-gray-400 mt-1">потенциал</div>
+              </div>
+              <div class="card-interactive p-4 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl text-center">
+                <div class="text-3xl font-bold text-primary-600 dark:text-primary-400">25+</div>
+                <div class="text-xs text-gray-600 dark:text-gray-400 mt-1">лет</div>
+              </div>
+            </div>
+          </div>
+
+          <img
+            src="https://i.ibb.co/60QSDM2n/1779447714.png"
+            alt="Концептуальная иллюстрация мозга взрослого человека на светло-сером фоне (#E8E8E8). В центре композиции изображён силуэт головного мозга в виде двух полушарий серого цвета (#808080) с видимыми бороздами и извилинами. Внутри мозга разбросаны десятки маленьких зелёных точек диаметром около 3-4 пикселей, расположенных хаотично по всей поверхности коры — это «молчаливые синапсы». Над мозгом справа расположена белая прямоугольная информационная плашка размером примерно 150x80 пикселей с тёмно-серым текстом на русском языке: «30% синапсов — резерв для обучения». Слева от мозга находится небольшой круглый значок в виде солнца жёлтого цвета (#FFD700) диаметром около 25 пикселей, символизирующий активацию. Композиция минималистична, без лишних элементов, акцент на наглядном представлении скрытого потенциала мозга."
+            class="w-full rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300"
+          />
+        </div>
+
+        <div class="mt-8 pl-4 pr-3 py-3 border-l-4 border-primary-500 bg-primary-50/40 dark:bg-primary-900/30 rounded-r-lg">
+          <p class="text-sm font-medium text-primary-900 dark:text-primary-100 leading-relaxed" data-ref="https://pubmed.ncbi.nlm.nih.gov/39999855/|5">
+            <i data-lucide="info" class="inline-block w-4 h-4 mr-1.5 -mt-0.5"></i>
+            Ключевая находка: Молчаливые синапсы могут играть важную роль в перестройке нейронных сетей у взрослых и служить скрытым резервом пластичности, который усиливает обработку информации.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Structure and Discovery Section -->
+    <section id="structure" class="py-16 bg-white/80 dark:bg-gray-900" data-aos="fade-up">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-8 text-primary-700 dark:text-primary-300" data-ref="https://news.mit.edu/2022/silent-synapses-brain-1130|21">
+          Структура и открытие молчаливых синапсов
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <div class="space-y-6">
+            <p class="text-gray-700 dark:text-gray-300" data-ref="https://news.mit.edu/2022/silent-synapses-brain-1130|21">
+              Исследователи из Массачусетского технологического института обнаружили, что взрослый мозг мышей содержит миллионы молчаливых синапсов, расположенных на крошечных структурах, называемых филоподиями. Эти синапсы остаются электрически неактивными до тех пор, пока не будут активированы определёнными входными сигналами.
+            </p>
+
+            <p class="text-gray-700 dark:text-gray-300" data-ref="https://www.the-scientist.com/silent-synapses-may-provide-plasticity-in-adulthood-70830|8">
+              Неактивные синапсы, найденные на крошечных нейронных выростах, называемых филоподиями, являются распространёнными в мозге взрослых особей, согласно исследованию на мышах. Эти филоподии представляют собой тонкие выступы, которые образуют синаптические контакты с другими нейронами.
+            </p>
+
+            <div class="pl-4 pr-3 py-3 border-l-4 border-primary-500 bg-primary-50/40 dark:bg-primary-900/30 rounded-r-lg">
+              <p class="text-sm font-medium text-primary-900 dark:text-primary-100 leading-relaxed" data-ref="https://pubmed.ncbi.nlm.nih.gov/36450984/|59">
+                <i data-lucide="circle-check" class="inline-block w-4 h-4 mr-1.5 -mt-0.5"></i>
+                Филоподии являются структурной основой для молчаливых синапсов в зрелой коре, обеспечивая платформу для быстрой активации этих скрытых соединений.
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div class="card-interactive p-6 bg-primary-50/50 dark:bg-primary-900/20 rounded-xl shadow-md">
+              <h3 class="text-lg font-semibold text-primary-700 dark:text-primary-300 mb-4" data-ref="https://www.researchgate.net/publication/258347854_AMPA-silent_synapses_in_brain_development_and_pathology|2">
+                Что такое молчаливые синапсы?
+              </h3>
+              <p class="text-gray-700 dark:text-gray-300 text-sm">
+                Возбуждающие синапсы, содержащие только рецепторы NMDA, называются «молчаливыми синапсами», поскольку одни лишь рецепторы NMDA не могут активировать мембранный потенциал нейрона. Для полной активации требуется наличие AMPA-рецепторов.
+              </p>
+            </div>
+
+            <div class="card-interactive p-6 bg-accent-50/50 dark:bg-accent-900/20 rounded-xl shadow-md">
+              <h3 class="text-lg font-semibold text-accent-700 dark:text-accent-300 mb-4" data-ref="https://www.sciencedaily.com/releases/2026/05/260504211848.htm|3">
+                Почему они молчаливые?
+              </h3>
+              <p class="text-gray-700 dark:text-gray-300 text-sm">
+                Без AMPA-рецепторов эти соединения остаются электрически неактивными, поэтому их называют «молчаливыми». Они содержат только рецепторы NMDA, которые не могут самостоятельно активировать нейрон.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hs-accordion-group space-y-4">
+          <div class="hs-accordion card-interactive bg-white/80 backdrop-blur-sm dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+            <button class="hs-accordion-toggle w-full flex justify-between items-center p-4 text-left hover:bg-primary-50 dark:hover:bg-gray-700/50 transition-colors rounded-xl" id="hs-structure-1">
+              <div class="flex items-center space-x-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
+                  <i data-lucide="microscope" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
+                </div>
+                <span class="font-semibold text-lg text-primary-700 dark:text-primary-300">Филоподии как субстрат</span>
+              </div>
+              <i data-lucide="chevron-down" class="hs-accordion-active:rotate-180 transition-transform duration-300 w-5 h-5 text-primary-600 dark:text-primary-400"></i>
+            </button>
+            <div id="hs-collapse-structure-1" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-structure-1">
+              <div class="p-6 pt-0 space-y-4">
+                <p class="text-gray-700 dark:text-gray-300" data-ref="https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2025.1750272/full|23">
+                  Филоподии являются структурным субстратом для молчаливых синапсов в зрелой коре, играя ключевую роль в поддержании скрытого нейропластического потенциала.
+                </p>
+                <p class="text-gray-700 dark:text-gray-300" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC10642921/|13">
+                  BDNF активирует рецепторы TrkB, которые в свою очередь вызывают ремоделирование актинового цитоскелета. Филоподии являются структурной основой для молчаливых синапсов в зрелой коре.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="hs-accordion card-interactive bg-white/80 backdrop-blur-sm dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+            <button class="hs-accordion-toggle w-full flex justify-between items-center p-4 text-left hover:bg-primary-50 dark:hover:bg-gray-700/50 transition-colors rounded-xl" id="hs-structure-2">
+              <div class="flex items-center space-x-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-accent-100 dark:bg-accent-900/30 rounded-lg flex items-center justify-center">
+                  <i data-lucide="layers" class="w-6 h-6 text-accent-600 dark:text-accent-400"></i>
+                </div>
+                <span class="font-semibold text-lg text-accent-700 dark:text-accent-300">Анатомические характеристики</span>
+              </div>
+              <i data-lucide="chevron-down" class="hs-accordion-active:rotate-180 transition-transform duration-300 w-5 h-5 text-accent-600 dark:text-accent-400"></i>
+            </button>
+            <div id="hs-collapse-structure-2" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-structure-2">
+              <div class="p-6 pt-0 space-y-4">
+                <p class="text-gray-700 dark:text-gray-300" data-ref="https://academic.oup.com/cercor/article/31/1/410/5901490|69">
+                  Мы проанализировали плотность синапсов, трёхмерное пространственное распределение и тип (возбуждающие и тормозные), а также форму и размер каждого синаптического контакта, чтобы понять структурные основы молчаливых соединений.
+                </p>
+                <p class="text-gray-700 dark:text-gray-300" data-ref="https://www.researchgate.net/figure/Structural-features-of-intracortical-L4-synaptic-boutons-a-High-power-electron_fig3_264431349|112">
+                  Мы использовали электронную микроскопию последовательных срезов для оценки астроцитарного синаптического покрытия во внутренней коре сенсомоторной области мышей, чтобы изучить ультраструктуру молчаливых синапсов.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mechanism of Activation Section -->
+    <section id="mechanism" class="py-16 bg-primary-50/50 dark:bg-gray-800" data-aos="fade-up">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-8 text-primary-700 dark:text-primary-300">
+          Механизм активации молчаливых синапсов
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-8 items-start mb-12">
+          <img
+            src="https://cdn.qwenlm.ai/b9dae233-8018-4115-a4c1-2a7ed18649fc/dd941f2a-9d9d-4a1b-b5d6-d974c3a931f5/8d78ed40-d400-449c-b354-dd107a55be6e.png?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNvdXJjZV91c2VyX2lkIjoiYjlkYWUyMzMtODAxOC00MTE1LWE0YzEtMmE3ZWQxODY0OWZjIiwicmVzb3VyY2VfaWQiOiJkZDk0MWYyYS05ZDlkLTRhMWItYjVkNi1kOTc0YzNhOTMxZjUiLCJyZXNvdXJjZV9jaGF0X2lkIjpudWxsfQ.KHtL20O5Xm_637LuFp-TTQNajJbCklS7wRuP_qkc2MA"
+            alt="Схематическая иллюстрация процесса активации молчаливого синапса на светло-сером фоне (#E8E8E8). В центре композиции показан крупный нейрон оранжевого цвета (#FF8C00) с множеством отростков. От одного из отростков отходит тонкий вырост — филоподия диаметром около 2 пикселей, окрашенная в тёмно-серый цвет (#404040). На конце филоподии расположен маленький красный круг диаметром около 6 пикселей — это молчаливый синапс, содержащий только рецепторы NMDA (обозначены буквой «N» белым цветом внутри круга). Справа от нейрона расположена вторая клетка синего цвета (#4169E1), из которой исходит стрелка синего цвета, указывающая на синапс. Под стрелкой надпись белым шрифтом: «Входной сигнал». В верхней части изображения находится белая информационная плашка размером примерно 200x60 пикселей с тёмно-серым текстом: «Активация рецепторов NMDA». Слева внизу — ещё одна белая плашка размером 180x50 пикселей с текстом: «Вставка AMPA-рецепторов». Композиция чёткая, без лишних деталей, акцент на процессе перехода от «молчаливого» состояния к активному синапсу."
+            class="w-full rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300"
+          />
+
+          <div class="space-y-6">
+            <p class="text-gray-700 dark:text-gray-300" data-ref="https://www.nature.com/articles/s41421-019-0139-1|1">
+              Активация синаптических рецепторов NMDA вызывает вставку новых AMPA-рецепторов в мембрану и ЛТП в культивированных гиппокампальных нейронах. Это ключевой механизм, который позволяет молчаливым синапсам становиться функционально активными.
+            </p>
+
+            <p class="text-gray-700 dark:text-gray-300" data-ref="https://www.sciencedirect.com/science/article/abs/pii/S0028390816301988|17">
+              Регулируемая вставка AMPA-рецепторов в слабые или функционально молчаливые синапсы считается ключевым постсинаптическим механизмом, лежащим в основе опыт-зависимой пластичности.
+            </p>
+
+            <div class="pl-4 pr-3 py-3 border-l-4 border-primary-500 bg-primary-50/40 dark:bg-primary-900/30 rounded-r-lg">
+              <p class="text-sm font-medium text-primary-900 dark:text-primary-100 leading-relaxed" data-ref="https://www.nature.com/articles/srep27757|74">
+                <i data-lucide="zap" class="inline-block w-4 h-4 mr-1.5 -mt-0.5"></i>
+                Увеличение содержания AMPA-рецепторов сопровождается активацией молчаливых синапсов — ключевой шаг в выражении долговременной потенциации.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-12">
+          <h3 class="text-2xl font-semibold text-primary-700 dark:text-primary-300 mb-6">
+            Последовательность активации
+          </h3>
+          
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
+              <div class="flex items-center space-x-3 mb-4">
+                <div class="w-10 h-10 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
+                  <span class="text-primary-600 dark:text-primary-400 font-bold">1</span>
+                </div>
+                <h4 class="font-semibold text-primary-700 dark:text-primary-300">Активация NMDA</h4>
+              </div>
+              <p class="text-sm text-gray-700 dark:text-gray-300" data-ref="https://pubmed.ncbi.nlm.nih.gov/11487624/|79">
+                Рецепторы AMPA могут быть быстро изменены и рекрутированы в молчаливые синапсы через активацию рецепторов NMDA спонтанной активностью.
+              </p>
+            </div>
+
+            <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
+              <div class="flex items-center space-x-3 mb-4">
+                <div class="w-10 h-10 bg-accent-100 dark:bg-accent-900/30 rounded-lg flex items-center justify-center">
+                  <span class="text-accent-600 dark:text-accent-400 font-bold">2</span>
+                </div>
+                <h4 class="font-semibold text-accent-700 dark:text-accent-300">Вставка AMPA</h4>
+              </div>
+              <p class="text-sm text-gray-700 dark:text-gray-300" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC11113961/|14">
+                Трафик AMPA-рецепторов является ключевым механизмом, который управляет развитием начальных синапсов и является главным определяющим фактором как геббианской, так и гомеостатической пластичности.
+              </p>
+            </div>
+
+            <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
+              <div class="flex items-center space-x-3 mb-4">
+                <div class="w-10 h-10 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
+                  <span class="text-primary-600 dark:text-primary-400 font-bold">3</span>
+                </div>
+                <h4 class="font-semibold text-primary-700 dark:text-primary-300">Функциональная активность</h4>
+              </div>
+              <p class="text-sm text-gray-700 dark:text-gray-300" data-ref="https://arxiv.org/html/2410.05899v1|16">
+                Функциональные синапсы требуют наличия обоих рецепторов AMPA и NMDA для активации соединений, в то время как молчаливые синапсы содержат только рецепторы NMDA и не имеют AMPA-рецепторов.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hs-accordion-group space-y-4">
+          <div class="hs-accordion card-interactive bg-white/80 backdrop-blur-sm dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+            <button class="hs-accordion-toggle w-full flex justify-between items-center p-4 text-left hover:bg-primary-50 dark:hover:bg-gray-700/50 transition-colors rounded-xl" id="hs-mechanism-1">
+              <div class="flex items-center space-x-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
+                  <i data-lucide="activity" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
+                </div>
+                <span class="font-semibold text-lg text-primary-700 dark:text-primary-300">LTP-подобные процессы</span>
+              </div>
+              <i data-lucide="chevron-down" class="hs-accordion-active:rotate-180 transition-transform duration-300 w-5 h-5 text-primary-600 dark:text-primary-400"></i>
+            </button>
+            <div id="hs-collapse-mechanism-1" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-mechanism-1">
+              <div class="p-6 pt-0 space-y-4">
+                <p class="text-gray-700 dark:text-gray-300" data-ref="https://www.sciencedirect.com/science/article/pii/S0021925822003064|27">
+                  Активация постсинаптически молчаливых синапсов во время парного индуцированного ЛТП в регионе CA1 среза гиппокампа демонстрирует, что эти соединения могут быть быстро активированы во время обучения.
+                </p>
+                <p class="text-gray-700 dark:text-gray-300" data-ref="https://www.cell.com/current-biology/pdf/S0960-9822(24)00606-7.pdf|40">
+                  Быстрое рассеивание SynGAP из дендритных шипиков запускает вставку AMPA-рецепторов и увеличение шипиков во время ЛТП, что указывает на молекулярные механизмы активации.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="hs-accordion card-interactive bg-white/80 backdrop-blur-sm dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+            <button class="hs-accordion-toggle w-full flex justify-between items-center p-4 text-left hover:bg-primary-50 dark:hover:bg-gray-700/50 transition-colors rounded-xl" id="hs-mechanism-2">
+              <div class="flex items-center space-x-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-accent-100 dark:bg-accent-900/30 rounded-lg flex items-center justify-center">
+                  <i data-lucide="dna" class="w-6 h-6 text-accent-600 dark:text-accent-400"></i>
+                </div>
+                <span class="font-semibold text-lg text-accent-700 dark:text-accent-300">Молекулярные механизмы</span>
+              </div>
+              <i data-lucide="chevron-down" class="hs-accordion-active:rotate-180 transition-transform duration-300 w-5 h-5 text-accent-600 dark:text-accent-400"></i>
+            </button>
+            <div id="hs-collapse-mechanism-2" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-mechanism-2">
+              <div class="p-6 pt-0 space-y-4">
+                <p class="text-gray-700 dark:text-gray-300" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC2819160/|45">
+                  Из литературы выявилась модель для активации молчаливых синапсов, которая подчёркивает центральную роль трафика постсинаптических AMPA-рецепторов в этом процессе.
+                </p>
+                <p class="text-gray-700 dark:text-gray-300" data-ref="https://www.researchgate.net/publication/336824742_The_AMPA_Receptor_Code_of_Synaptic_Plasticity|81">
+                  Функция и трафик AMPA-рецепторов к и от синапсов модулируется специфическими субъединицами AMPA-рецепторов GluA1-GluA4, субъединицно-специфическими белковыми интеракторами и фосфорилированием.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Learning and Memory Section -->
+    <section id="learning" class="py-16 bg-white/80 dark:bg-gray-900" data-aos="fade-up">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-8 text-primary-700 dark:text-primary-300">
+          Влияние на обучение и память
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <div class="space-y-6">
+            <p class="text-gray-700 dark:text-gray-300" data-ref="https://www.sciencedirect.com/science/article/abs/pii/S000632231500654X|4">
+              Наши результаты показывают, что молчаливые синапсы формируются только в нейронных ансамблях ядра аккумбенса, связанных с ассоциативным обучением. Это указывает на их специфическую роль в формировании памяти.
+            </p>
+
+            <p class="text-gray-700 dark:text-gray-300" data-ref="https://pubmed.ncbi.nlm.nih.gov/30462151/|44">
+              Наши данные позволяют предположить, что ассоциативное страховое обучение может вызвать возбудительную реакцию на запомненный условный стимул в большой популяции нейронов CA1, что связано с активацией молчаливых синапсов.
+            </p>
+
+            <div class="pl-4 pr-3 py-3 border-l-4 border-primary-500 bg-primary-50/40 dark:bg-primary-900/30 rounded-r-lg">
+              <p class="text-sm font-medium text-primary-900 dark:text-primary-100 leading-relaxed" data-ref="https://www.mdpi.com/2227-9059/13/2/460|24">
+                <i data-lucide="brain" class="inline-block w-4 h-4 mr-1.5 -mt-0.5"></i>
+                Сенсорная депривация или обучение подавляют ГАМК-ингибирование, что раскрывает скрытые связи и преобразует молчаливые синапсы в функциональные, улучшая память.
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div class="card-interactive p-6 bg-primary-50/50 dark:bg-primary-900/20 rounded-xl shadow-md">
+              <h3 class="text-lg font-semibold text-primary-700 dark:text-primary-300 mb-4" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC7509299/|15">
+                Ускоренная активация синапсов
+              </h3>
+              <p class="text-gray-700 dark:text-gray-300 text-sm">
+                Текущее исследование представляет прямые доказательства того, что ранний жизненный стресс преждевременно активирует гиппокампальные синапсы для усиления функций AMPA-рецепторов, ускоряя процесс обучения.
+              </p>
+            </div>
+
+            <div class="card-interactive p-6 bg-accent-50/50 dark:bg-accent-900/20 rounded-xl shadow-md">
+              <h3 class="text-lg font-semibold text-accent-700 dark:text-accent-300 mb-4" data-ref="https://www.researchgate.net/publication/352517990_Altered_EEG_markers_of_synaptic_plasticity_in_a_human_model_of_NMDA_receptor_deficiency_Anti-NMDA_receptor_encephalitis|62">
+                Пластичность синаптической силы
+              </h3>
+              <p class="text-gray-700 dark:text-gray-300 text-sm">
+                Пластичность синаптической силы и плотности является жизненно важным механизмом, позволяющим консолидацию памяти, обучение и нейроразвитие, особенно в контексте активации молчаливых синапсов.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-8">
+          <h3 class="text-2xl font-semibold text-primary-700 dark:text-primary-300 mb-6">
+            Примеры повседневного обучения
+          </h3>
+          
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
+              <div class="flex items-center space-x-3 mb-4">
+                <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
+                  <i data-lucide="book-open" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
+                </div>
+                <h4 class="font-semibold text-primary-700 dark:text-primary-300">Изучение языков</h4>
+              </div>
+              <p class="text-sm text-gray-700 dark:text-gray-300" data-ref="https://www.mdpi.com/2227-9059/13/2/460|24">
+                Новые слова и грамматические правила активируют молчаливые синапсы, создавая новые нейронные связи без разрушения уже существующих знаний.
+              </p>
+            </div>
+
+            <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
+              <div class="flex items-center space-x-3 mb-4">
+                <div class="w-12 h-12 bg-accent-100 dark:bg-accent-900/30 rounded-lg flex items-center justify-center">
+                  <i data-lucide="music" class="w-6 h-6 text-accent-600 dark:text-accent-400"></i>
+                </div>
+                <h4 class="font-semibold text-accent-700 dark:text-accent-300">Музыкальные навыки</h4>
+              </div>
+              <p class="text-sm text-gray-700 dark:text-gray-300" data-ref="https://www.sciencedirect.com/science/article/abs/pii/S000632231500654X|4">
+                Ассоциативное обучение музыкальным паттернам создаёт новые молчаливые синапсы в нейронных ансамблях, связанных с аудиальной памятью.
+              </p>
+            </div>
+
+            <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
+              <div class="flex items-center space-x-3 mb-4">
+                <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
+                  <i data-lucide="compass" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
+                </div>
+                <h4 class="font-semibold text-primary-700 dark:text-primary-300">Навигация</h4>
+              </div>
+              <p class="text-sm text-gray-700 dark:text-gray-300" data-ref="https://pubmed.ncbi.nlm.nih.gov/30462151/|44">
+                Знакомство с новыми маршрутами активирует молчаливые синапсы в гиппокампе, улучшая пространственную память и ориентацию.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hs-accordion-group space-y-4">
+          <div class="hs-accordion card-interactive bg-white/80 backdrop-blur-sm dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+            <button class="hs-accordion-toggle w-full flex justify-between items-center p-4 text-left hover:bg-primary-50 dark:hover:bg-gray-700/50 transition-colors rounded-xl" id="hs-learning-1">
+              <div class="flex items-center space-x-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
+                  <i data-lucide="target" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
+                </div>
+                <span class="font-semibold text-lg text-primary-700 dark:text-primary-300">Значимые входные сигналы</span>
+              </div>
+              <i data-lucide="chevron-down" class="hs-accordion-active:rotate-180 transition-transform duration-300 w-5 h-5 text-primary-600 dark:text-primary-400"></i>
+            </button>
+            <div id="hs-collapse-learning-1" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-learning-1">
+              <div class="p-6 pt-0 space-y-4">
+                <p class="text-gray-700 dark:text-gray-300" data-ref="https://scitechdaily.com/super-bizarre-neuroscientists-discover-that-adult-brain-is-filled-with-millions-of-silent-synapses/|6">
+                  Учёные обнаружили удивительно большой резерв «молчаливых синапсов» в мозге взрослых особей — неиспользуемые нейронные связи, которые могут быть быстро активированы при значимом обучении.
+                </p>
+                <p class="text-gray-700 dark:text-gray-300" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC1665055/|64">
+                  Активация молчаливых синапсов может включать вставку новых AMPA-рецепторов на подсинаптическую мембрану «глухих» синапсов. Парное афферентное стимулирование с постсинаптической активностью может активировать эти соединения.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="hs-accordion card-interactive bg-white/80 backdrop-blur-sm dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+            <button class="hs-accordion-toggle w-full flex justify-between items-center p-4 text-left hover:bg-primary-50 dark:hover:bg-gray-700/50 transition-colors rounded-xl" id="hs-learning-2">
+              <div class="flex items-center space-x-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-accent-100 dark:bg-accent-900/30 rounded-lg flex items-center justify-center">
+                  <i data-lucide="shield-check" class="w-6 h-6 text-accent-600 dark:text-accent-400"></i>
+                </div>
+                <span class="font-semibold text-lg text-accent-700 dark:text-accent-300">Сохранение существующих связей</span>
+              </div>
+              <i data-lucide="chevron-down" class="hs-accordion-active:rotate-180 transition-transform duration-300 w-5 h-5 text-accent-600 dark:text-accent-400"></i>
+            </button>
+            <div id="hs-collapse-learning-2" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-learning-2">
+              <div class="p-6 pt-0 space-y-4">
+                <p class="text-gray-700 dark:text-gray-300" data-ref="https://pubmed.ncbi.nlm.nih.gov/39999855/|5">
+                  Мы утверждаем, что молчаливые синапсы могут быть важны для перестройки нейронных сетей у взрослых и могут служить скрытым резервом пластичности, который усиливает обработку информации.
+                </p>
+                <p class="text-gray-700 dark:text-gray-300" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC4906299/|77">
+                  Они также обсуждали концепцию когнитивного резерва в контексте плотности кортикальных синапсов и обсуждали, как синаптический резерв, старение и развитие влияют на обучение.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stimulation Methods Section -->
+    <section id="stimulation" class="py-16 bg-accent-50/50 dark:bg-gray-800" data-aos="fade-up">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-8 text-accent-700 dark:text-accent-300">
+          Доступные способы стимуляции резерва
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <div class="space-y-6">
+            <p class="text-gray-700 dark:text-gray-300" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC5928534/|9">
+              Из-за роли упражнений в улучшении нейрогенеза и пластичности мозга физическая активность может служить потенциальным терапевтическим инструментом для предотвращения, задержки или обращения возрастных и болезненных когнитивных нарушений.
+            </p>
+
+            <p class="text-gray-700 dark:text-gray-300" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC9090458/|18">
+              Склонность мозга к нейропластичности зависит от факторов образа жизни, включая упражнения, питание и сон. Эти факторы могут влиять на активацию молчаливых синапсов.
+            </p>
+
+            <div class="pl-4 pr-3 py-3 border-l-4 border-accent-500 bg-accent-50/40 dark:bg-accent-900/30 rounded-r-lg">
+              <p class="text-sm font-medium text-accent-900 dark:text-accent-100 leading-relaxed" data-ref="https://onlinelibrary.wiley.com/doi/10.1155/2017/3589271|50">
+                <i data-lucide="lightbulb" class="inline-block w-4 h-4 mr-1.5 -mt-0.5"></i>
+                Модифицируемые факторы образа жизни, включая физическую активность, когнитивную нагрузку и питание, являются ключевыми для защиты когнитивной функции и здоровья мозга с возрастом.
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
+              <h3 class="text-lg font-semibold text-accent-700 dark:text-accent-300 mb-4" data-ref="https://www.nature.com/articles/tp2017135|10">
+                Аэробные упражнения
+              </h3>
+              <p class="text-gray-700 dark:text-gray-300 text-sm">
+                Основными исходами были изменения церебрального метаболизма и его связь с уровнями нейротрофического фактора мозга (BDNF), а также изменения объёма серого вещества.
+              </p>
+            </div>
+
+            <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
+              <h3 class="text-lg font-semibold text-accent-700 dark:text-accent-300 mb-4" data-ref="https://www.mdpi.com/2227-9059/11/6/1765|11">
+                Утренняя тренировка
+              </h3>
+              <p class="text-gray-700 dark:text-gray-300 text-sm">
+                Умеренные упражнения утром улучшили сывороточный BDNF и рабочую память или исполнительную функцию у пожилых людей, в зависимости от времени следующей сессии.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-8">
+          <h3 class="text-2xl font-semibold text-accent-700 dark:text-accent-300 mb-6">
+            Практические методы стимуляции
+          </h3>
+          
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
+              <div class="flex items-center space-x-3 mb-4">
+                <div class="w-12 h-12 bg-accent-100 dark:bg-accent-900/30 rounded-lg flex items-center justify-center">
+                  <i data-lucide="dumbbell" class="w-6 h-6 text-accent-600 dark:text-accent-400"></i>
+                </div>
+                <h4 class="font-semibold text-accent-700 dark:text-accent-300">Физическая активность</h4>
+              </div>
+              <p class="text-sm text-gray-700 dark:text-gray-300" data-ref="https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2025.1502417/full|19">
+                Аэробные упражнения увеличили объём гиппокампа на
+                <span class="mx-1 px-1.5 py-0.5 rounded-md bg-accent-100 dark:bg-accent-900/30 text-accent-800 dark:text-accent-300 font-semibold text-sm">1–2%</span>
+                и улучшили показатели исполнительной функции на
+                <span class="mx-1 px-1.5 py-0.5 rounded-md bg-accent-100 dark:bg-accent-900/30 text-accent-800 dark:text-accent-300 font-semibold text-sm">5–10%</span>
+                у пожилых людей.
+              </p>
+            </div>
+
+            <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
+              <div class="flex items-center space-x-3 mb-4">
+                <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
+                  <i data-lucide="brain" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
+                </div>
+                <h4 class="font-semibold text-primary-700 dark:text-primary-300">Когнитивные тренировки</h4>
+              </div>
+              <p class="text-sm text-gray-700 dark:text-gray-300" data-ref="https://www.scirp.org/journal/paperinformation?paperid=141637|71">
+                Когнитивные тренировки, включающие решение проблем, изучение новых навыков и участие в умственно стимулирующих задачах, укрепляют нейронные сети и улучшают функции мозга.
+              </p>
+            </div>
+
+            <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
+              <div class="flex items-center space-x-3 mb-4">
+                <div class="w-12 h-12 bg-accent-100 dark:bg-accent-900/30 rounded-lg flex items-center justify-center">
+                  <i data-lucide="bed" class="w-6 h-6 text-accent-600 dark:text-accent-400"></i>
+                </div>
+                <h4 class="font-semibold text-accent-700 dark:text-accent-300">Режим сна</h4>
+              </div>
+              <p class="text-sm text-gray-700 dark:text-gray-300" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC8426406/|55">
+                Молекулярные исследования показывают изменения в экспрессии AMPA-рецепторов во время сна/бодрствования, что согласуется с происхождением обучения и синаптического отбора.
+              </p>
+            </div>
+
+            <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
+              <div class="flex items-center space-x-3 mb-4">
+                <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
+                  <i data-lucide="users" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
+                </div>
+                <h4 class="font-semibold text-primary-700 dark:text-primary-300">Социальное взаимодействие</h4>
+              </div>
+              <p class="text-sm text-gray-700 dark:text-gray-300" data-ref="https://www.sciencedirect.com/science/article/abs/pii/S000632231500654X|4">
+                Ассоциативное обучение в социальном контексте формирует молчаливые синапсы в нейронных ансамблях, связанных с обучением, усиливая нейропластичность.
+              </p>
+            </div>
+
+            <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
+              <div class="flex items-center space-x-3 mb-4">
+                <div class="w-12 h-12 bg-accent-100 dark:bg-accent-900/30 rounded-lg flex items-center justify-center">
+                  <i data-lucide="music" class="w-6 h-6 text-accent-600 dark:text-accent-400"></i>
+                </div>
+                <h4 class="font-semibold text-accent-700 dark:text-accent-300">Музыкальная активность</h4>
+              </div>
+              <p class="text-sm text-gray-700 dark:text-gray-300" data-ref="https://www.sciencedirect.com/science/article/abs/pii/S000632231500654X|4">
+                Музыкальное обучение создаёт новые молчаливые синапсы в нейронных ансамблях, связанных с ассоциативным обучением, улучшая память и когнитивные функции.
+              </p>
+            </div>
+
+            <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
+              <div class="flex items-center space-x-3 mb-4">
+                <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
+                  <i data-lucide="leaf" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
+                </div>
+                <h4 class="font-semibold text-primary-700 dark:text-primary-300">Питание</h4>
+              </div>
+              <p class="text-sm text-gray-700 dark:text-gray-300" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC6692714/|70">
+                Многодоменная интервенция, включающая питание, упражнения, когнитивные тренировки и социальную поддержку, улучшает трафик AMPA-рецепторов и классическое обусловливание.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hs-accordion-group space-y-4">
+          <div class="hs-accordion card-interactive bg-white/80 backdrop-blur-sm dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+            <button class="hs-accordion-toggle w-full flex justify-between items-center p-4 text-left hover:bg-accent-50 dark:hover:bg-gray-700/50 transition-colors rounded-xl" id="hs-stimulation-1">
+              <div class="flex items-center space-x-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-accent-100 dark:bg-accent-900/30 rounded-lg flex items-center justify-center">
+                  <i data-lucide="heart-pulse" class="w-6 h-6 text-accent-600 dark:text-accent-400"></i>
+                </div>
+                <span class="font-semibold text-lg text-accent-700 dark:text-accent-300">BDNF и нейропластичность</span>
+              </div>
+              <i data-lucide="chevron-down" class="hs-accordion-active:rotate-180 transition-transform duration-300 w-5 h-5 text-accent-600 dark:text-accent-400"></i>
+            </button>
+            <div id="hs-collapse-stimulation-1" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-stimulation-1">
+              <div class="p-6 pt-0 space-y-4">
+                <p class="text-gray-700 dark:text-gray-300" data-ref="https://onlinelibrary.wiley.com/doi/pdf/10.1111/gbb.12394|58">
+                  Одиночная сессия упражнений увеличивает BDNF в гиппокампе, что может способствовать активации молчаливых синапсов и улучшению обучения.
+                </p>
+                <p class="text-gray-700 dark:text-gray-300" data-ref="https://onlinelibrary.wiley.com/doi/10.1111/j.1460-9568.2004.03720.x|110">
+                  Активация BDNF его рецептором TrkB может увеличить синаптический резерв, улучшая долговременную потенциацию в гиппокампе.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="hs-accordion card-interactive bg-white/80 backdrop-blur-sm dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+            <button class="hs-accordion-toggle w-full flex justify-between items-center p-4 text-left hover:bg-accent-50 dark:hover:bg-gray-700/50 transition-colors rounded-xl" id="hs-stimulation-2">
+              <div class="flex items-center space-x-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
+                  <i data-lucide="calendar" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
+                </div>
+                <span class="font-semibold text-lg text-primary-700 dark:text-primary-300">Регулярные тренировки</span>
+              </div>
+              <i data-lucide="chevron-down" class="hs-accordion-active:rotate-180 transition-transform duration-300 w-5 h-5 text-primary-600 dark:text-primary-400"></i>
+            </button>
+            <div id="hs-collapse-stimulation-2" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-stimulation-2">
+              <div class="p-6 pt-0 space-y-4">
+                <p class="text-gray-700 dark:text-gray-300" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC3624830/|41">
+                  Наша лаборатория недавно показала, что
+                  <span class="mx-1 px-1.5 py-0.5 rounded-md bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 font-semibold text-sm">4 недели</span>
+                  тренировки на беговой дорожке предотвращают нарушения пространственного обучения и краткосрочной памяти, вызванные депривацией сна, и поддерживают долговременную потенциацию.
+                </p>
+                <p class="text-gray-700 dark:text-gray-300" data-ref="https://www.nature.com/articles/s41598-021-93813-5|83">
+                  Регулярные физические упражнения улучшают функции памяти, синаптическую пластичность в гиппокампе и уровни нейротрофического фактора мозга (BDNF).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Aging and Cognitive Reserve Section -->
+    <section id="aging" class="py-16 bg-white/80 dark:bg-gray-900" data-aos="fade-up">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-8 text-primary-700 dark:text-primary-300">
+          Старение и когнитивный резерв
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <div class="space-y-6">
+            <p class="text-gray-700 dark:text-gray-300" data-ref="https://www.mdpi.com/2035-8377/18/1/10|7">
+              Данные ЭЭГ и фМРТ показывают, что устойчивые пожилые люди демонстрируют более эффективные паттерны связности, сниженное энергопотребление и укреплённые задаче-зависимые сети, что связано с сохранением молчаливых синапсов.
+            </p>
+
+            <p class="text-gray-700 dark:text-gray-300" data-ref="https://link.springer.com/article/10.1186/s40708-023-00195-7|78">
+              Высшее образование приводит к формированию большего количества синаптических соединений в мозге. Это создаёт синаптический резерв в мозге, позволяя людям лучше справляться с возрастными изменениями.
+            </p>
+
+            <div class="pl-4 pr-3 py-3 border-l-4 border-primary-500 bg-primary-50/40 dark:bg-primary-900/30 rounded-r-lg">
+              <p class="text-sm font-medium text-primary-900 dark:text-primary-100 leading-relaxed" data-ref="https://onlinelibrary.wiley.com/doi/full/10.1002/nep3.70006|31">
+                <i data-lucide="shield" class="inline-block w-4 h-4 mr-1.5 -mt-0.5"></i>
+                Адаптивная пластичность играет жизненно важную роль в восстановлении после травм мозга, таких как инсульты или травматические повреждения, улучшая синаптическую связность.
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div class="card-interactive p-6 bg-primary-50/50 dark:bg-primary-900/20 rounded-xl shadow-md">
+              <h3 class="text-lg font-semibold text-primary-700 dark:text-primary-300 mb-4" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC4906299/|77">
+                Синаптический резерв
+              </h3>
+              <p class="text-gray-700 dark:text-gray-300 text-sm">
+                Концепция когнитивного резерва включает плотность кортикальных синапсов. Синаптический резерв, старение и развитие влияют на обучение и память, особенно у людей старше 25–30 лет.
+              </p>
+            </div>
+
+            <div class="card-interactive p-6 bg-accent-50/50 dark:bg-accent-900/20 rounded-xl shadow-md">
+              <h3 class="text-lg font-semibold text-accent-700 dark:text-accent-300 mb-4" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC10033629/|34">
+                Ранние изменения
+              </h3>
+              <p class="text-gray-700 dark:text-gray-300 text-sm">
+                Ранние работы в человеческой ткани при болезни Альцгеймера показали отрицательную корреляцию между потерей синапсов и размером синапсов, что указывает на важность поддержания синаптического резерва.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-8">
+          <h3 class="text-2xl font-semibold text-primary-700 dark:text-primary-300 mb-6">
+            Рекомендации для людей старше 25–30 лет
+          </h3>
+          
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
+              <div class="flex items-center space-x-3 mb-4">
+                <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
+                  <i data-lucide="clock" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
+                </div>
+                <h4 class="font-semibold text-primary-700 dark:text-primary-300">Регулярная практика</h4>
+              </div>
+              <p class="text-sm text-gray-700 dark:text-gray-300" data-ref="https://www.sciencedirect.com/science/article/abs/pii/S000632231500654X|4">
+                Постоянная практика новых навыков (языки, музыка, программирование) активирует молчаливые синапсы и укрепляет нейронные сети, даже после 25 лет.
+              </p>
+            </div>
+
+            <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
+              <div class="flex items-center space-x-3 mb-4">
+                <div class="w-12 h-12 bg-accent-100 dark:bg-accent-900/30 rounded-lg flex items-center justify-center">
+                  <i data-lucide="heart" class="w-6 h-6 text-accent-600 dark:text-accent-400"></i>
+                </div>
+                <h4 class="font-semibold text-accent-700 dark:text-accent-300">Физическая активность</h4>
+              </div>
+              <p class="text-sm text-gray-700 dark:text-gray-300" data-ref="https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2025.1502417/full|19">
+                Аэробные упражнения
+                <span class="mx-1 px-1.5 py-0.5 rounded-md bg-accent-100 dark:bg-accent-900/30 text-accent-800 dark:text-accent-300 font-semibold text-sm">3–4 раза в неделю</span>
+                улучшают объём гиппокампа и когнитивные функции у взрослых старше 30 лет.
+              </p>
+            </div>
+
+            <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
+              <div class="flex items-center space-x-3 mb-4">
+                <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
+                  <i data-lucide="moon" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
+                </div>
+                <h4 class="font-semibold text-primary-700 dark:text-primary-300">Качественный сон</h4>
+              </div>
+              <p class="text-sm text-gray-700 dark:text-gray-300" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC8426406/|55">
+                <span class="mx-1 px-1.5 py-0.5 rounded-md bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 font-semibold text-sm">7–9 часов</span>
+                качественного сна ежедневно поддерживают экспрессию AMPA-рецепторов и синаптический отбор, важные для обучения.
+              </p>
+            </div>
+
+            <div class="card-interactive p-6 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-md">
+              <div class="flex items-center space-x-3 mb-4">
+                <div class="w-12 h-12 bg-accent-100 dark:bg-accent-900/30 rounded-lg flex items-center justify-center">
+                  <i data-lucide="users-round" class="w-6 h-6 text-accent-600 dark:text-accent-400"></i>
+                </div>
+                <h4 class="font-semibold text-accent-700 dark:text-accent-300">Социальная активность</h4>
+              </div>
+              <p class="text-sm text-gray-700 dark:text-gray-300" data-ref="https://www.sciencedirect.com/science/article/abs/pii/S000632231500654X|4">
+                Активное социальное взаимодействие и обучение в группах усиливают формирование молчаливых синапсов и поддерживают когнитивный резерв.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hs-accordion-group space-y-4">
+          <div class="hs-accordion card-interactive bg-white/80 backdrop-blur-sm dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+            <button class="hs-accordion-toggle w-full flex justify-between items-center p-4 text-left hover:bg-primary-50 dark:hover:bg-gray-700/50 transition-colors rounded-xl" id="hs-aging-1">
+              <div class="flex items-center space-x-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
+                  <i data-lucide="trending-up" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
+                </div>
+                <span class="font-semibold text-lg text-primary-700 dark:text-primary-300">Профилактика ухудшения</span>
+              </div>
+              <i data-lucide="chevron-down" class="hs-accordion-active:rotate-180 transition-transform duration-300 w-5 h-5 text-primary-600 dark:text-primary-400"></i>
+            </button>
+            <div id="hs-collapse-aging-1" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-aging-1">
+              <div class="p-6 pt-0 space-y-4">
+                <p class="text-gray-700 dark:text-gray-300" data-ref="https://www.mdpi.com/2035-8377/18/1/10|7">
+                  Устойчивые пожилые люди демонстрируют более эффективные паттерны связности, что указывает на важность поддержания синаптического резерва для предотвращения когнитивного ухудшения.
+                </p>
+                <p class="text-gray-700 dark:text-gray-300" data-ref="https://link.springer.com/article/10.1186/s40708-023-00195-7|78">
+                  Синаптический резерв в мозге позволяет людям лучше справляться с возрастными изменениями, особенно когда он поддерживается через постоянное обучение и когнитивную нагрузку.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="hs-accordion card-interactive bg-white/80 backdrop-blur-sm dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+            <button class="hs-accordion-toggle w-full flex justify-between items-center p-4 text-left hover:bg-primary-50 dark:hover:bg-gray-700/50 transition-colors rounded-xl" id="hs-aging-2">
+              <div class="flex items-center space-x-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-accent-100 dark:bg-accent-900/30 rounded-lg flex items-center justify-center">
+                  <i data-lucide="pill" class="w-6 h-6 text-accent-600 dark:text-accent-400"></i>
+                </div>
+                <span class="font-semibold text-lg text-accent-700 dark:text-accent-300">Немедикаментозные подходы</span>
+              </div>
+              <i data-lucide="chevron-down" class="hs-accordion-active:rotate-180 transition-transform duration-300 w-5 h-5 text-accent-600 dark:text-accent-400"></i>
+            </button>
+            <div id="hs-collapse-aging-2" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-aging-2">
+              <div class="p-6 pt-0 space-y-4">
+                <p class="text-gray-700 dark:text-gray-300" data-ref="https://onlinelibrary.wiley.com/doi/10.1155/2017/3589271|50">
+                  Модифицируемые факторы образа жизни, включая физическую активность, когнитивную нагрузку и питание, являются ключевыми для защиты когнитивной функции и здоровья мозга с возрастом.
+                </p>
+                <p class="text-gray-700 dark:text-gray-300" data-ref="https://pmc.ncbi.nlm.nih.gov/articles/PMC5485368/|51">
+                  Трансляционные исследования показали, что модифицируемые факторы образа жизни — включая физическую активность, когнитивную нагрузку и питание — являются ключевыми для поддержания когнитивного резерва.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section id="conclusion" class="py-16 bg-primary-50/50 dark:bg-gray-800" data-aos="fade-up">
+      <div class="max-w-4xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-8 text-primary-700 dark:text-primary-300">
+          Заключение и перспективы
+        </h2>
+
+        <div class="space-y-6">
+          <p class="text-lg text-gray-700 dark:text-gray-300" data-ref="https://pubmed.ncbi.nlm.nih.gov/39999855/|5">
+            Молчаливые синапсы могут играть важную роль в перестройке нейронных сетей у взрослых и служить скрытым резервом пластичности, который усиливает обработку информации. Это открытие имеет огромное значение для понимания того, как взрослый мозг продолжает учиться и адаптироваться.
+          </p>
+
+          <p class="text-lg text-gray-700 dark:text-gray-300" data-ref="https://scitechdaily.com/super-bizarre-neuroscientists-discover-that-adult-brain-is-filled-with-millions-of-silent-synapses/|6">
+            Учёные обнаружили удивительно большой резерв «молчаливых синапсов» в мозге взрослых особей — неиспользуемые нейронные связи, которые могут быть быстро активированы. Это открывает новые возможности для стимуляции нейропластичности у людей любого возраста.
+          </p>
+
+          <div class="pl-4 pr-3 py-3 border-l-4 border-primary-500 bg-primary-50/40 dark:bg-primary-900/30 rounded-r-lg">
+            <p class="text-sm font-medium text-primary-900 dark:text-primary-100 leading-relaxed" data-ref="https://news.mit.edu/2022/silent-synapses-brain-1130|21">
+              <i data-lucide="award" class="inline-block w-4 h-4 mr-1.5 -mt-0.5"></i>
+              Ключевая находка: Взрослый мозг мышей содержит миллионы молчаливых синапсов, расположенных на филоподиях, которые могут быть быстро активированы для обучения без нарушения существующих связей.
+            </p>
+          </div>
+
+          <div class="mt-8 card-interactive p-8 bg-white/90 backdrop-blur-sm dark:bg-gray-900 rounded-xl shadow-lg">
+            <h3 class="text-xl font-semibold text-primary-700 dark:text-primary-300 mb-4">
+              Практические выводы
+            </h3>
+            <ul class="space-y-3">
+              <li class="flex items-start space-x-3">
+                <i data-lucide="circle-check" class="w-5 h-5 text-primary-600 dark:text-primary-400 flex-shrink-0 mt-0.5"></i>
+                <span class="text-gray-700 dark:text-gray-300">Молчаливые синапсы составляют около
+                  <span class="mx-1 px-1.5 py-0.5 rounded-md bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 font-semibold text-sm">30%</span>
+                  всех синапсов у взрослых животных, обеспечивая значительный нейропластический резерв.</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <i data-lucide="circle-check" class="w-5 h-5 text-primary-600 dark:text-primary-400 flex-shrink-0 mt-0.5"></i>
+                <span class="text-gray-700 dark:text-gray-300">Активация происходит через вставку AMPA-рецепторов в ответ на значимые входные сигналы, что позволяет быстро формировать новые нейронные связи.</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <i data-lucide="circle-check" class="w-5 h-5 text-primary-600 dark:text-primary-400 flex-shrink-0 mt-0.5"></i>
+                <span class="text-gray-700 dark:text-gray-300">Физическая активность, когнитивные тренировки, качественный сон и социальное взаимодействие эффективно стимулируют этот резерв у людей старше 25–30 лет.</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <i data-lucide="circle-check" class="w-5 h-5 text-primary-600 dark:text-primary-400 flex-shrink-0 mt-0.5"></i>
+                <span class="text-gray-700 dark:text-gray-300">Поддержание синаптического резерва помогает предотвратить возрастное когнитивное ухудшение и улучшает обучение на протяжении всей жизни.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pl-4 pr-3 py-3 border-l-4 border-accent-500 bg-accent-50/40 dark:bg-accent-900/30 rounded-r-lg">
+            <p class="text-sm font-medium text-accent-900 dark:text-accent-100 leading-relaxed" data-ref="https://onlinelibrary.wiley.com/doi/10.1155/2017/3589271|50">
+              <i data-lucide="sparkles" class="inline-block w-4 h-4 mr-1.5 -mt-0.5"></i>
+              Это исследование подчёркивает важность модификации образа жизни для защиты когнитивной функции и здоровья мозга во время старения, открывая новые пути для поддержания нейропластичности.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-primary-700 dark:bg-gray-900 border-t border-primary-600 dark:border-gray-800">
+    <div class="max-w-6xl mx-auto px-6 py-8">
+      <div class="text-center">
+        <p class="text-primary-100 dark:text-gray-400 text-sm">
+          © 2024 Исследование молчаливых синапсов. Образовательный проект.
+        </p>
+        <p class="text-primary-200 dark:text-gray-500 text-xs mt-2">
+          Все материалы основаны на научных источниках и предназначены для просвещения.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Citation System Script -->
+  <script>
+    function initCitationSystem() {
+      let i = 1, map = new Map();
+      document.querySelectorAll('[data-ref]').forEach(el => {
+        if (el.dataset.citationProcessed) return;
+        const raw = (el.getAttribute('data-ref')||'').trim();
+        if (!raw) return;
+
+        const parts = raw.split('|');
+        const url = parts[0].trim();
+        const idx = (parts[1]||'').trim() || map.get(raw) || (map.set(raw, String(i)), String(i++));
+
+        if (!el.textContent || !el.textContent.trim()) { el.dataset.citationProcessed = 'true'; return; }
+
+        const btn = document.createElement('sup'); btn.textContent = String(idx);
+        Object.assign(btn.style, { fontSize:'8px', color:'#fff', cursor:'pointer', top: '1px', fontWeight:'bold', backgroundColor:'#0284c7', borderRadius:'50%', transition:'all .15s', userSelect:'none', minWidth:'19px', height:'19px', marginLeft:'6px', display:'inline-flex', alignItems:'center', justifyContent:'center', boxShadow:'0 1px 3px rgba(0,0,0,.2)', lineHeight:'1'});
+        btn.addEventListener('mouseenter', ()=> Object.assign(btn.style, { backgroundColor:'#0369a1', transform:'scale(1.12)' }));
+        btn.addEventListener('mouseleave', ()=> Object.assign(btn.style, { backgroundColor:'#0284c7', transform:'scale(1)' }));
+        btn.addEventListener('click', e=>{ e.preventDefault(); e.stopPropagation(); window.open(url, '_blank'); });
+
+        el.appendChild(btn); el.dataset.citationProcessed = 'true';
+      });
+    }
+  </script>
+
+  <!-- Initialize Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize Lucide icons
+      lucide.createIcons();
+
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+      });
+
+      // Initialize Preline components
+      setTimeout(() => {
+        window.HSStaticMethods.autoInit();
+      }, 100);
+
+      // Initialize citation system
+      initCitationSystem();
+
+      // Progress bar
+      const progressBar = document.getElementById('progressBar');
+      
+      window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        progressBar.style.width = scrolled + '%';
+      });
+    });
+  </script>
+</body>
+</html>
+
